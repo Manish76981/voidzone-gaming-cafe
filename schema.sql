@@ -723,3 +723,121 @@ CREATE INDEX IF NOT EXISTS idx_creator_verif ON creator_profiles(verification_st
 CREATE INDEX IF NOT EXISTS idx_collab_status_game ON collaboration_opportunities(status, game);
 CREATE INDEX IF NOT EXISTS idx_campaigns_status_game ON brand_campaigns(status, game);
 CREATE INDEX IF NOT EXISTS idx_collab_apps_applicant ON collaboration_applications(applicant_phone, target_id);
+
+-- ============================================================================
+-- PHASE 17 (v16.0): ADVANCED MULTI-RESOURCE BOOKING PLATFORM TABLES
+-- ============================================================================
+CREATE TABLE IF NOT EXISTS booking_resources (
+  resource_id TEXT PRIMARY KEY,
+  name TEXT NOT NULL,
+  resource_type TEXT NOT NULL,
+  category TEXT NOT NULL,
+  group_zone TEXT NOT NULL,
+  branch TEXT NOT NULL DEFAULT 'MAZGAON',
+  capacity INTEGER NOT NULL DEFAULT 1,
+  min_duration_mins INTEGER NOT NULL DEFAULT 30,
+  max_duration_mins INTEGER NOT NULL DEFAULT 480,
+  buffer_mins INTEGER NOT NULL DEFAULT 0,
+  base_rate_peak INTEGER NOT NULL DEFAULT 80,
+  base_rate_offpeak INTEGER NOT NULL DEFAULT 60,
+  features_json TEXT NOT NULL DEFAULT '[]',
+  supported_games_json TEXT NOT NULL DEFAULT '[]',
+  maintenance_status TEXT NOT NULL DEFAULT 'OPERATIONAL',
+  maintenance_reason TEXT DEFAULT '',
+  active INTEGER NOT NULL DEFAULT 1,
+  updated_at TEXT NOT NULL DEFAULT (datetime('now'))
+);
+
+CREATE TABLE IF NOT EXISTS booking_packages (
+  package_id TEXT PRIMARY KEY,
+  name TEXT NOT NULL,
+  description TEXT NOT NULL,
+  resources_spec_json TEXT NOT NULL,
+  duration_hrs REAL NOT NULL DEFAULT 2,
+  discount_pct REAL NOT NULL DEFAULT 10,
+  min_players INTEGER NOT NULL DEFAULT 1,
+  max_players INTEGER NOT NULL DEFAULT 10,
+  active INTEGER NOT NULL DEFAULT 1,
+  created_at TEXT NOT NULL DEFAULT (datetime('now'))
+);
+
+CREATE TABLE IF NOT EXISTS booking_addons (
+  addon_id TEXT PRIMARY KEY,
+  name TEXT NOT NULL,
+  category TEXT NOT NULL,
+  price_inr INTEGER NOT NULL,
+  max_qty INTEGER NOT NULL DEFAULT 10,
+  tax_pct REAL NOT NULL DEFAULT 0,
+  eligible_types_json TEXT NOT NULL DEFAULT '["pc","ps","sim","vr"]',
+  active INTEGER NOT NULL DEFAULT 1
+);
+
+CREATE TABLE IF NOT EXISTS multi_bookings (
+  booking_id TEXT PRIMARY KEY,
+  customer_phone TEXT NOT NULL,
+  customer_name TEXT NOT NULL,
+  branch TEXT NOT NULL DEFAULT 'MAZGAON',
+  session_date TEXT NOT NULL,
+  booking_status TEXT NOT NULL DEFAULT 'Confirmed',
+  payment_status TEXT NOT NULL DEFAULT 'Pending Payment',
+  subtotal_inr INTEGER NOT NULL DEFAULT 0,
+  discount_inr INTEGER NOT NULL DEFAULT 0,
+  addons_inr INTEGER NOT NULL DEFAULT 0,
+  tax_inr INTEGER NOT NULL DEFAULT 0,
+  total_inr INTEGER NOT NULL DEFAULT 0,
+  package_id TEXT DEFAULT NULL,
+  promo_code TEXT DEFAULT NULL,
+  player_count INTEGER NOT NULL DEFAULT 1,
+  team_name TEXT DEFAULT '',
+  participants_json TEXT NOT NULL DEFAULT '[]',
+  addons_json TEXT NOT NULL DEFAULT '[]',
+  checkin_code TEXT NOT NULL,
+  created_at TEXT NOT NULL DEFAULT (datetime('now')),
+  updated_at TEXT NOT NULL DEFAULT (datetime('now'))
+);
+
+CREATE INDEX IF NOT EXISTS idx_multi_bookings_date_phone ON multi_bookings(session_date, customer_phone);
+
+CREATE TABLE IF NOT EXISTS multi_booking_items (
+  item_id TEXT PRIMARY KEY,
+  booking_id TEXT NOT NULL,
+  resource_id TEXT NOT NULL,
+  resource_type TEXT NOT NULL,
+  session_date TEXT NOT NULL,
+  start_time TEXT NOT NULL,
+  end_time TEXT NOT NULL,
+  duration_hrs REAL NOT NULL DEFAULT 2,
+  buffer_mins INTEGER NOT NULL DEFAULT 0,
+  unit_rate_inr INTEGER NOT NULL DEFAULT 80,
+  item_total_inr INTEGER NOT NULL DEFAULT 160,
+  status TEXT NOT NULL DEFAULT 'Confirmed',
+  FOREIGN KEY (booking_id) REFERENCES multi_bookings(booking_id)
+);
+
+CREATE INDEX IF NOT EXISTS idx_multi_booking_items_lookup ON multi_booking_items(session_date, resource_id, start_time, end_time);
+
+CREATE TABLE IF NOT EXISTS booking_waitlist (
+  waitlist_id TEXT PRIMARY KEY,
+  customer_phone TEXT NOT NULL,
+  customer_name TEXT NOT NULL,
+  resource_type TEXT NOT NULL,
+  group_zone TEXT NOT NULL,
+  session_date TEXT NOT NULL,
+  requested_start TEXT NOT NULL,
+  requested_end TEXT NOT NULL,
+  player_count INTEGER NOT NULL DEFAULT 1,
+  status TEXT NOT NULL DEFAULT 'Waiting',
+  expires_at TEXT NOT NULL,
+  created_at TEXT NOT NULL DEFAULT (datetime('now'))
+);
+
+CREATE TABLE IF NOT EXISTS booking_audit_log (
+  audit_id TEXT PRIMARY KEY,
+  booking_id TEXT NOT NULL,
+  actor_role TEXT NOT NULL,
+  actor_id TEXT NOT NULL,
+  action TEXT NOT NULL,
+  before_json TEXT DEFAULT '{}',
+  after_json TEXT DEFAULT '{}',
+  created_at TEXT NOT NULL DEFAULT (datetime('now'))
+);

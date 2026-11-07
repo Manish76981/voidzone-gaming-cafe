@@ -1319,287 +1319,6 @@
     
 
     
-    .spatial-stage-card {
-      padding: 18px 20px;
-      border-color: rgba(255, 30, 66, 0.42);
-      background:
-        radial-gradient(600px circle at 15% 0%, rgba(255, 30, 66, 0.16), transparent 60%),
-        radial-gradient(600px circle at 85% 100%, rgba(0, 229, 245, 0.10), transparent 60%),
-        rgba(10, 12, 18, 0.88);
-    }
-
-    .spatial-viewport {
-      position: relative;
-      width: 100%;
-      height: 390px;
-      border-radius: 18px;
-      border: 1px solid rgba(255, 30, 66, 0.45);
-      background: #060609;
-      perspective: 1200px;
-      overflow: hidden;
-      margin: 12px 0;
-      box-shadow:
-        inset 0 0 70px rgba(0, 0, 0, 0.92),
-        0 18px 42px -12px rgba(0, 0, 0, 0.85);
-    }
-
-    @media (max-width: 680px) {
-      .spatial-viewport {
-        height: 330px;
-      }
-    }
-
-    .spatial-video-layer {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 400ms ease;
-      z-index: 1;
-    }
-
-    .spatial-video-layer.active {
-      opacity: 0.88;
-    }
-
-    
-    .room-3d-world {
-      position: absolute;
-      inset: 0;
-      transform-style: preserve-3d;
-      transition: transform 750ms var(--spatial-ease);
-      will-change: transform;
-      z-index: 2;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    
-    .room-3d-world[data-cam="overview"] {
-      transform: translate3d(0px, -8px, 80px) rotateX(-7deg) rotateY(0deg);
-    }
-    .room-3d-world[data-cam="node_a"] {
-      transform: translate3d(0px, 10px, 270px) rotateX(-2deg) rotateY(0deg);
-    }
-    .room-3d-world[data-cam="node_b"],
-    .room-3d-world[data-cam="pc"] {
-      transform: translate3d(195px, -4px, 315px) rotateX(-4deg) rotateY(-27deg);
-    }
-    .room-3d-world[data-cam="node_c"],
-    .room-3d-world[data-cam="ps"] {
-      transform: translate3d(-195px, -6px, 315px) rotateX(-5deg) rotateY(27deg);
-    }
-    .room-3d-world[data-cam="node_d"],
-    .room-3d-world[data-cam="sim"],
-    .room-3d-world[data-cam="vr"] {
-      transform: translate3d(-105px, -28px, 375px) rotateX(-10deg) rotateY(15deg);
-    }
-
-    
-    .room-ceiling {
-      position: absolute;
-      width: 880px;
-      height: 620px;
-      background:
-        repeating-linear-gradient(60deg, transparent 0 48px, rgba(255, 30, 66, 0.55) 48px 52px, transparent 52px 110px),
-        repeating-linear-gradient(-60deg, transparent 0 48px, rgba(255, 107, 0, 0.50) 48px 52px, transparent 52px 110px),
-        radial-gradient(circle at 50% 50%, rgba(0, 229, 245, 0.20), rgba(6, 6, 9, 0.96) 75%);
-      border: 2px solid rgba(255, 30, 66, 0.5);
-      transform: translate3d(0, -175px, -120px) rotateX(90deg);
-      box-shadow: 0 0 50px rgba(255, 30, 66, 0.35);
-    }
-
-    .room-floor {
-      position: absolute;
-      width: 880px;
-      height: 620px;
-      background:
-        radial-gradient(circle at 50% 45%, rgba(255, 30, 66, 0.22), rgba(0, 229, 245, 0.08) 48%, rgba(6, 6, 9, 0.98) 80%),
-        repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.05) 0 1px, transparent 1px 40px),
-        repeating-linear-gradient(0deg, rgba(255, 107, 0, 0.07) 0 1px, transparent 1px 40px);
-      border: 2px solid rgba(255, 107, 0, 0.35);
-      transform: translate3d(0, 175px, -120px) rotateX(-90deg);
-    }
-
-    
-    .room-wall-back {
-      position: absolute;
-      width: 780px;
-      height: 310px;
-      transform: translate3d(0, 0, -340px);
-      background: linear-gradient(180deg, rgba(16, 18, 28, 0.96), rgba(8, 10, 16, 0.98));
-      border: 2px solid rgba(255, 30, 66, 0.65);
-      border-radius: 16px;
-      padding: 18px 24px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      box-shadow:
-        0 0 65px rgba(255, 30, 66, 0.32),
-        inset 0 0 40px rgba(255, 30, 66, 0.16);
-    }
-
-    
-    .room-wall-left {
-      position: absolute;
-      width: 540px;
-      height: 300px;
-      transform: translate3d(-370px, 4px, -90px) rotateY(62deg);
-      background: linear-gradient(180deg, rgba(15, 20, 32, 0.95), rgba(8, 11, 18, 0.98));
-      border: 2px solid rgba(0, 229, 245, 0.55);
-      border-radius: 16px;
-      padding: 14px 18px;
-      box-shadow:
-        0 0 50px rgba(0, 229, 245, 0.22),
-        inset 0 0 32px rgba(255, 107, 0, 0.14);
-    }
-
-    .white-pc-shelf {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 8px;
-      padding: 7px 10px;
-      background: rgba(255, 255, 255, 0.05);
-      border-bottom: 2px solid var(--cyber-cyan);
-      border-radius: 10px;
-      margin-bottom: 10px;
-    }
-
-    .white-pc-tower {
-      background: linear-gradient(145deg, #f8fafc 0%, #cbd5e1 100%);
-      border: 1.5px solid var(--cyber-cyan);
-      border-radius: 6px;
-      padding: 5px 6px;
-      color: #06080d;
-      font-family: var(--font-mono);
-      font-size: 9.5px;
-      font-weight: 800;
-      text-align: center;
-      box-shadow: 0 0 14px rgba(0, 229, 245, 0.45);
-    }
-
-    
-    .room-wall-right {
-      position: absolute;
-      width: 540px;
-      height: 300px;
-      transform: translate3d(370px, 4px, -90px) rotateY(-62deg);
-      background: linear-gradient(180deg, rgba(24, 12, 20, 0.95), rgba(10, 8, 14, 0.98));
-      border: 2px solid rgba(255, 30, 66, 0.65);
-      border-radius: 16px;
-      padding: 14px 18px;
-      box-shadow:
-        0 0 50px rgba(255, 30, 66, 0.28),
-        inset 0 0 32px rgba(255, 30, 66, 0.18);
-    }
-
-    .beanbag-row {
-      display: flex;
-      gap: 10px;
-      justify-content: space-around;
-      margin-top: 10px;
-    }
-
-    
-    .room-cockpit-pod {
-      position: absolute;
-      width: 320px;
-      padding: 12px 15px;
-      transform: translate3d(135px, 52px, -195px) rotateY(-18deg);
-      background: linear-gradient(155deg, rgba(20, 24, 36, 0.96), rgba(8, 10, 16, 0.98));
-      border: 2px solid var(--warm-amber);
-      border-radius: 16px;
-      box-shadow:
-        0 18px 40px rgba(0, 0, 0, 0.85),
-        0 0 32px rgba(255, 183, 3, 0.32);
-    }
-
-    .hotspot-3d:hover,
-    .hotspot-3d.selected {
-      transform: scale(1.08) translateY(-1px);
-      border-color: var(--cyber-cyan);
-      background: rgba(0, 229, 245, 0.22);
-      box-shadow: 0 0 16px rgba(0, 229, 245, 0.55);
-    }
-
-    .hotspot-3d.busy {
-      border-color: var(--crimson-neon);
-      background: rgba(255, 30, 66, 0.24);
-    }
-
-    
-    .spatial-hud-top {
-      position: absolute;
-      top: 12px;
-      left: 14px;
-      right: 14px;
-      z-index: 10;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-      pointer-events: none;
-    }
-
-    .spatial-hud-top > * {
-      pointer-events: auto;
-    }
-
-    .spatial-hud-bottom {
-      position: absolute;
-      bottom: 12px;
-      left: 14px;
-      right: 14px;
-      z-index: 10;
-      background: rgba(6, 8, 13, 0.86);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 14px;
-      padding: 10px 14px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-    }
-
-    
-    @keyframes homeCardReveal {
-      from {
-        opacity: 0;
-        transform: translateY(22px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .stagger-home-cards > .c,
-    .stagger-home-cards > .g > .c,
-    .stagger-home-cards > .g2 > .c {
-      animation: homeCardReveal 560ms var(--spatial-ease) both;
-    }
-    .stagger-home-cards > :nth-child(1) { animation-delay: 0ms; }
-    .stagger-home-cards > :nth-child(2) { animation-delay: 80ms; }
-    .stagger-home-cards > :nth-child(3) { animation-delay: 160ms; }
-    .stagger-home-cards > :nth-child(4) { animation-delay: 240ms; }
-    .stagger-home-cards > :nth-child(5) { animation-delay: 320ms; }
-    .stagger-home-cards > :nth-child(6) { animation-delay: 400ms; }
-
-    @media (prefers-reduced-motion: reduce) {
-      
-    }
-
-    
-
-    
     /* ==========================================================================
        CLEAN SPATIAL STAGE & BOX-SIZING FOUNDATION (v15.0 Pro-Level Cleanup)
        Removed 8.7 KB of dead legacy 3D door/cube/flip keyframes & duplicate #nav rules
@@ -3633,6 +3352,145 @@
       margin-right: 2px;
       flex-shrink: 0;
     }
+
+    /* ==========================================================================
+       VOIDZONE v16.0 — MULTI-SELECT PILL HIGHLIGHT & MULTI-RESOURCE BOOKING UI
+       ========================================================================== */
+    .vz-ios-subtab-bar button.vz-glass-tab.on,
+    .vz-ios-subtab-bar.has-liquid-lens button.vz-glass-tab.on {
+      background: linear-gradient(135deg, rgba(var(--tab-tint-rgb, 255, 107, 0), 0.34), rgba(var(--tab-tint-rgb, 255, 107, 0), 0.14)) !important;
+      border: 1px solid rgba(var(--tab-tint-rgb, 255, 107, 0), 0.72) !important;
+      box-shadow:
+        0 6px 18px -4px rgba(var(--tab-tint-rgb, 255, 107, 0), 0.38),
+        inset 0 1px 0 rgba(255, 255, 255, 0.28) !important;
+      color: #ffffff !important;
+      font-weight: 700 !important;
+    }
+    .vz-ios-subtab-bar button.vz-glass-tab.on .vz-tab-dot,
+    .vz-ios-subtab-bar.has-liquid-lens button.vz-glass-tab.on .vz-tab-dot {
+      display: inline-block !important;
+      opacity: 1 !important;
+      transform: scale(1) !important;
+    }
+    .rig.s {
+      border: 2px solid #ff6b00 !important;
+      background: linear-gradient(145deg, rgba(255, 107, 0, 0.24), rgba(20, 24, 34, 0.95)) !important;
+      box-shadow: 0 0 20px rgba(255, 107, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.22) !important;
+      transform: translateY(-2px);
+    }
+    .rig.maint {
+      border: 1px dashed rgba(245, 158, 11, 0.55) !important;
+      background: rgba(245, 158, 11, 0.08) !important;
+      opacity: 0.75;
+    }
+    .vz-res-item-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      padding: 8px 12px;
+      border-radius: 10px;
+      background: rgba(15, 19, 28, 0.78);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: 6px;
+    }
+    .vz-pkg-card {
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      background: rgba(14, 18, 26, 0.82);
+      cursor: pointer;
+      text-align: left;
+      transition: border-color 140ms ease, transform 140ms ease;
+    }
+    .vz-pkg-card.on,
+    .vz-pkg-card:hover {
+      border-color: rgba(255, 107, 0, 0.68);
+      background: linear-gradient(135deg, rgba(255, 107, 0, 0.16), rgba(16, 20, 30, 0.92));
+      transform: translateY(-1px);
+    }
+    .vz-util-bar-track {
+      width: 100%;
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+      margin-top: 4px;
+    }
+    .vz-util-bar-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #ff6b00, #38bdf8);
+    }
+
+    /* ==========================================================================
+       VOIDZONE v17.0 — MASTER TAB-BY-TAB UPGRADE (MEMBERSHIP, ALL HUB, COOLER, REWARDS)
+       ========================================================================== */
+    .vz-member-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+      padding: 22px 24px;
+      background:
+        radial-gradient(480px circle at 92% 10%, rgba(255, 107, 0, 0.22), transparent 62%),
+        linear-gradient(135deg, rgba(20, 24, 36, 0.96) 0%, rgba(10, 12, 18, 0.98) 100%);
+      border: 1px solid rgba(255, 107, 0, 0.42);
+      box-shadow: 0 18px 40px -12px rgba(0, 0, 0, 0.72), inset 0 1px 0 rgba(255, 255, 255, 0.14);
+    }
+    .vz-quick-actions-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin: 14px 0 6px;
+    }
+    .vz-order-status-step {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      background: rgba(16, 185, 129, 0.14);
+      border: 1px solid rgba(16, 185, 129, 0.40);
+      color: #6ee7b7;
+    }
+    .vz-all-hub-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-top: 14px;
+    }
+    .vz-all-group-box {
+      padding: 16px 18px;
+      border-radius: 16px;
+      background: rgba(13, 16, 24, 0.88);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .vz-all-link-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 9px 10px;
+      margin-top: 4px;
+      border-radius: 10px;
+      border: 1px solid transparent;
+      background: rgba(255, 255, 255, 0.02);
+      color: var(--tx, #f8fafc);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: left;
+      transition: background 140ms ease, border-color 140ms ease, transform 140ms ease;
+    }
+    .vz-all-link-row:hover {
+      background: rgba(255, 107, 0, 0.12);
+      border-color: rgba(255, 107, 0, 0.35);
+      transform: translateX(2px);
+    }
 </style>
 </head>
 <body>
@@ -5388,7 +5246,7 @@ CREATE TABLE IF NOT EXISTS icafe_sync_queue (
       };
     }
 
-    const VALID_VIEWS = new Set(["home", "book", "community", "social", "creators", "collaborate", "esports", "cafe", "rewards", "staff", "owner", "developer"]);
+    const VALID_VIEWS = new Set(["home", "book", "community", "social", "creators", "collaborate", "esports", "cafe", "rewards", "membership", "all", "staff", "owner", "developer"]);
     let view = VALID_VIEWS.has(location.hash.slice(1)) ? location.hash.slice(1) : "home";
     let ok = false;
     let staffRole = "none"; // "staff" (PIN 1234) | "owner" (PIN 9999)
@@ -5400,21 +5258,385 @@ CREATE TABLE IF NOT EXISTS icafe_sync_queue (
     let sel = null;
     let cur = "9820011223";
     let curPinVerified = true;
-    let bk = { branch: "mazgaon", ty: "pc", d: 2, k: 2, qty: 1, multiRigs: [], vr2: false, grp: false, applyDisc: false, h: 14, startTime: "14:00", endTime: "16:00", step: 15, filterH: "ALL", prefRig: "ANY", game: "Valorant", phone: "", name: "", pin: "0000" };
+    let bk = { branch: "mazgaon", ty: "pc", d: 2, k: 2, qty: 1, multiRigs: [], multiGames: ["Valorant"], slotQueue: [], vr2: false, grp: false, applyDisc: false, h: 14, startTime: "14:00", endTime: "16:00", step: 15, filterH: "ALL", prefRig: "ANY", game: "Valorant", phone: "", name: "", pin: "0000" };
+
+    function buildCurrentSlotSnapshot() {
+      if (bk.h == null) bk.h = 14;
+      const curEst = estBreakdown(bk.h, bk.phone);
+      const sysCount = getSelectedSystemsCount();
+      const explicitRigs = Array.isArray(bk.multiRigs) && bk.multiRigs.length > 0
+        ? [...bk.multiRigs]
+        : (bk.prefRig && bk.prefRig !== "ANY" ? [bk.prefRig] : []);
+      return {
+        qid: "QSLOT-" + Date.now() + "-" + Math.floor(Math.random() * 1000),
+        branch: bk.branch || "mazgaon",
+        ty: bk.ty || "pc",
+        h: Number(bk.h),
+        d: Number(bk.d || 2),
+        startTime: bk.startTime || hValToTimeStr(Number(bk.h)),
+        endTime: bk.endTime || hValToTimeStr(Number(bk.h) + Number(bk.d || 2)),
+        k: bk.ty === "ps" ? bk.k : 1,
+        vr2: bk.ty === "sim" ? Boolean(bk.vr2) : false,
+        grp: Boolean(bk.grp),
+        game: bk.game || "Valorant",
+        multiRigs: explicitRigs,
+        prefRig: bk.prefRig || "ANY",
+        qty: sysCount,
+        systemsLabel: getSelectedSystemsLabel(),
+        estCost: Math.round(curEst.finalCost)
+      };
+    }
+
+    function getQueuedBookingsTotal(fallbackSingleCost = 0) {
+      if (Array.isArray(bk.slotQueue) && bk.slotQueue.length > 0) {
+        return bk.slotQueue.reduce((sum, item) => sum + (Number(item.estCost) || 0), 0);
+      }
+      return fallbackSingleCost;
+    }
+
+    function renderAdvancedMultiResourceControls(curEst, availInWindow) {
+      ensureBookingPlatformState();
+      const effRigs = getEffectiveMultiRigs();
+      const totalCap = effRigs.length > 0
+        ? effRigs.reduce((sum, rId) => sum + (RESOURCE_RULES[rigTypeOf(rId)]?.capacity || 1), 0)
+        : getSelectedSystemsCount() * (RESOURCE_RULES[bk.ty]?.capacity || 1);
+      const capWarning = bk.playerCount > totalCap;
+      const altSlots = availInWindow < getSelectedSystemsCount()
+        ? findAlternativeSlots(bk.ty, getSelectedSystemsCount(), bk.h || 14, bk.d || 2)
+        : [];
+      const utilStats = getZoneUtilizationStats();
+
+      return `<div class="sub-panel" style="margin-top:12px">
+        <div class="row-between" style="margin-bottom:8px">
+          <div>
+            <div class="tag" style="margin-bottom:2px">SMART MULTI-RESOURCE BUILDER · PACKAGES · PER-RESOURCE DURATION · ADD-ONS</div>
+            <b style="font-size:14px">${effRigs.length} Resource(s) Selected: <span style="color:var(--ac)">${esc(getSelectedSystemsLabel())}</span> · Live Subtotal: <span style="color:var(--gr)">${rs(curEst.finalCost)}</span></b>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            ${utilStats.map((u) => `<span class="badge slv" title="${esc(u.label)} Utilization">${u.ty.toUpperCase()}: ${u.cap - u.used} free · ${u.pct}% util</span>`).join("")}
+          </div>
+        </div>
+
+        ${
+          effRigs.length > 0
+            ? `<div style="margin:10px 0">
+                <div class="m" style="font-size:12px;font-weight:700;margin-bottom:6px">Selected Resources &amp; Independent Duration Controls (Section 8):</div>
+                ${effRigs.map((rId) => {
+                  const rTy = rigTypeOf(rId);
+                  const rules = RESOURCE_RULES[rTy] || RESOURCE_RULES.pc;
+                  const itemDur = getItemDurationHrs(rId);
+                  const itemFare = calcRigSlotFare(rTy, bk.h, itemDur);
+                  return `<div class="vz-res-item-row">
+                    <div>
+                      <span class="badge gld">${esc(rId)}</span>
+                      <b style="margin-left:6px">${esc(rules.label)}</b>
+                      <span class="m" style="font-size:11.5px;margin-left:6px">(${rules.features.slice(0, 2).join(" · ")} · Cap: ${rules.capacity}P${rules.bufferMins ? ` · +${rules.bufferMins}m buffer` : ""})</span>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:8px">
+                      <label class="m" style="font-size:12px">Duration:
+                        <select data-action="set-item-duration" data-rig="${esc(rId)}" style="padding:4px 8px;font-size:12px;margin-left:4px">
+                          ${[0.5, 1, 1.5, 2, 3, 4, 6, 8]
+                            .filter((h) => h >= rules.minHrs && h <= rules.maxHrs)
+                            .map((h) => `<option value="${h}" ${h === itemDur ? "selected" : ""}>${h === 0.5 ? "30 min" : h === 1.5 ? "1.5 hrs" : `${h} hr${h > 1 ? "s" : ""}`}</option>`)
+                            .join("")}
+                        </select>
+                      </label>
+                      <b style="font-family:var(--font-mono);color:var(--ac);min-width:56px;text-align:right">${rs(itemFare)}</b>
+                      <button type="button" class="step-pill" style="padding:3px 8px;font-size:11px" data-action="pick-pref-rig" data-rig="${esc(rId)}" data-type="${esc(rTy)}">✕</button>
+                    </div>
+                  </div>`;
+                }).join("")}
+              </div>`
+            : ""
+        }
+
+        <div style="margin-top:10px">
+          <div class="m" style="font-size:12px;font-weight:700;margin-bottom:6px">1-Click Multi-Resource Combo Packages (Auto-Selects Rigs + Package Discount):</div>
+          <div class="g" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px;margin-bottom:10px">
+            ${BOOKING_PACKAGES.map((pk) => {
+              const isPkgOn = bk.packageId === pk.id;
+              return `<button type="button" class="vz-pkg-card ${isPkgOn ? "on" : ""}" data-action="apply-booking-package" data-pkg="${esc(pk.id)}">
+                <div class="row-between">
+                  <b style="font-size:12.5px;color:#fff">${isPkgOn ? "✓ " : ""}${esc(pk.name)}</b>
+                  <span class="badge gld" style="font-size:10px">-${pk.discPct}%</span>
+                </div>
+                <div class="m" style="font-size:11px;margin-top:3px">${esc(pk.desc)}</div>
+              </button>`;
+            }).join("")}
+          </div>
+        </div>
+
+        <div style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.07)">
+          <div class="m" style="font-size:12px;font-weight:700;margin-bottom:6px">Optional Session Add-Ons &amp; Equipment Upgrades:</div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px">
+            ${BOOKING_ADDONS.map((ad) => {
+              const qty = Number(bk.addons?.[ad.id] || 0);
+              return `<button type="button" class="step-pill ${qty > 0 ? "on" : ""}" style="${qty > 0 ? "border-color:#ff6b00 !important;background:rgba(255,107,0,0.22) !important;color:#fff !important" : ""}" data-action="toggle-booking-addon" data-addon="${esc(ad.id)}">
+                ${qty > 0 ? `✓ ${esc(ad.name)} (×${qty})` : `+ ${esc(ad.name)}`} · <b>+${rs(ad.price)}</b>
+              </button>`;
+            }).join("")}
+          </div>
+        </div>
+
+        <div style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.07);display:flex;flex-wrap:wrap;gap:10px;align-items:center">
+          <label class="m" style="font-size:12px">Players Count:
+            <select data-action="book-player-count" style="padding:5px 8px;font-size:12px;margin-left:4px">
+              ${[1, 2, 3, 4, 5, 6, 8, 10, 12].map((n) => `<option value="${n}" ${n === Number(bk.playerCount || 1) ? "selected" : ""}>${n} Player${n > 1 ? "s" : ""}</option>`).join("")}
+            </select>
+          </label>
+          <button type="button" class="step-pill" style="font-size:11.5px" data-action="recommend-group-setup">✨ Smart Recommend for ${bk.playerCount || 1}P</button>
+          <input id="book-team-participants" placeholder="Teammates / Friends (e.g. Manish, Rahul, Adil)" value="${esc(bk.participantsText || "")}" style="flex:1;min-width:200px;font-size:12px;padding:6px 10px">
+          <label class="m" style="font-size:12px">Schedule:
+            <select data-action="book-recurrence" style="padding:5px 8px;font-size:12px;margin-left:4px">
+              <option value="ONCE" ${bk.recurrence === "ONCE" ? "selected" : ""}>Single Session (Today)</option>
+              <option value="WEEKLY_2" ${bk.recurrence === "WEEKLY_2" ? "selected" : ""}>Weekly × 2 Weeks</option>
+              <option value="WEEKLY_4" ${bk.recurrence === "WEEKLY_4" ? "selected" : ""}>Weekly × 4 Weeks</option>
+            </select>
+          </label>
+        </div>
+        ${
+          capWarning
+            ? `<div class="sub-panel" style="margin-top:8px;border-color:var(--am);background:rgba(245,158,11,0.12);font-size:12px;color:#fde68a">
+                ⚠️ <b>Capacity Notice:</b> You selected <b>${bk.playerCount} players</b>, but the currently selected resource(s) hold up to <b>${totalCap} player(s)</b>. Click <b>✨ Smart Recommend for ${bk.playerCount}P</b> or select additional stations above.
+              </div>`
+            : ""
+        }
+        ${
+          altSlots.length > 0
+            ? `<div class="sub-panel" style="margin-top:8px;border-color:#38bdf8;background:rgba(56,189,248,0.10);font-size:12px">
+                <div class="row-between">
+                  <span>🔍 <b>Alternative Slot Finder:</b> Requested count is full at ${fmtSlotTime(bk.h)}. Closest available slots:</span>
+                  <button type="button" class="step-pill" data-action="join-slot-waitlist">⏳ Join Waitlist (${fmtSlotTime(bk.h)})</button>
+                </div>
+                <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:6px">
+                  ${altSlots.map((as) => `<button type="button" class="step-pill" data-action="jump-alt-slot" data-h="${as.h}">🕒 ${esc(as.label)} (${as.avail} free)</button>`).join("")}
+                </div>
+              </div>`
+            : `<div style="margin-top:8px;display:flex;justify-content:flex-end">
+                <button type="button" class="step-pill" style="font-size:11px" data-action="join-slot-waitlist">⏳ Join Slot Waitlist (${fmtSlotTime(bk.h)} – ${fmtSlotTime(bk.h + bk.d)})</button>
+              </div>`
+        }
+      </div>`;
+    }
+
+    function renderMultiSlotQueuePanel(curEst) {
+      const q = Array.isArray(bk.slotQueue) ? bk.slotQueue : [];
+      const queueTotal = q.reduce((sum, item) => sum + (Number(item.estCost) || 0), 0);
+      return `<div class="sub-panel" style="margin-top:14px;border-color:rgba(255,107,0,0.42)">
+        <div class="row-between">
+          <div>
+            <div class="tag" style="margin-bottom:2px">MULTI-BOOKING SLOT QUEUE · BOOK MULTIPLE SLOTS FROM 1 ACCOUNT</div>
+            <b style="font-size:14px">${
+              q.length > 0
+                ? `${q.length} Slot Booking(s) Queued Under Your Account · Combined Total: <span style="color:var(--ac)">${rs(queueTotal)}</span>`
+                : "Want to book multiple time slots or different station types under 1 account?"
+            }</b>
+            <div class="m" style="font-size:12px;margin-top:2px">Configure a slot above and click <b>+ Add Slot to Multi-Booking Queue</b> to stack multiple bookings (e.g., 2pm–4pm PC + 4pm–6pm PS5, or multiple slots across the day) and confirm them all at once.</div>
+          </div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center">
+            <button type="button" class="b gold" style="padding:7px 14px;font-size:12.5px" data-action="add-slot-to-queue">➕ Add Current Slot to Queue (${rs(curEst.finalCost)})</button>
+            <button type="button" class="step-pill" data-action="add-next-slot">⚡ + Queue Next Consecutive Slot</button>
+            ${q.length > 0 ? `<button type="button" class="step-pill" data-action="clear-slot-queue">✕ Clear Queue (${q.length})</button>` : ""}
+          </div>
+        </div>
+        ${
+          q.length > 0
+            ? `<div class="g" style="margin-top:10px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:8px">
+                ${q.map((item, idx) => `<div class="sub-panel" style="padding:10px 12px;background:rgba(15,19,28,0.85)">
+                  <div class="row-between">
+                    <span class="badge gld">Booking #${idx + 1} · ${esc(item.ty.toUpperCase())}</span>
+                    <button type="button" class="step-pill" style="padding:2px 8px;font-size:11px" data-action="remove-queued-slot" data-qid="${esc(item.qid)}">✕ Remove</button>
+                  </div>
+                  <div style="margin-top:6px;font-weight:700;color:var(--tx)">${fmtSlotTime(item.h)} – ${fmtSlotTime(item.h + item.d)} (${fmtDurHours(item.d)})</div>
+                  <div class="m" style="font-size:12px;margin-top:2px">Station(s): <b>${esc(item.systemsLabel)}</b> · ${item.branch === "charni" ? "Charni Rd" : "Mazgaon"}</div>
+                  <div class="m" style="font-size:12px;margin-top:2px">Game: ${esc(item.game)} · Fare: <b style="color:var(--ac)">${rs(item.estCost)}</b></div>
+                </div>`).join("")}
+              </div>`
+            : ""
+        }
+      </div>`;
+    }
+
+    function rigTypeOf(rId) {
+      const s = String(rId || "").toUpperCase();
+      if (s.startsWith("PS5") || s.startsWith("PS-")) return "ps";
+      if (s.startsWith("SIM")) return "sim";
+      if (s.startsWith("VR")) return "vr";
+      return "pc";
+    }
+
+    function getEffectiveMultiRigs() {
+      if (Array.isArray(bk.multiRigs) && bk.multiRigs.length > 0) return bk.multiRigs;
+      if (bk.prefRig && bk.prefRig !== "ANY") return [bk.prefRig];
+      return [];
+    }
 
     function getSelectedSystemsCount() {
-      const mLen = Array.isArray(bk.multiRigs) ? bk.multiRigs.length : 0;
-      return Math.max(1, mLen > 0 ? mLen : (Number(bk.qty) || 1));
+      const mRigs = getEffectiveMultiRigs();
+      return Math.max(1, mRigs.length > 0 ? mRigs.length : (Number(bk.qty) || 1));
     }
 
     function getSelectedSystemsLabel() {
-      const mRigs = Array.isArray(bk.multiRigs) ? bk.multiRigs : [];
+      const mRigs = getEffectiveMultiRigs();
       const count = getSelectedSystemsCount();
       if (mRigs.length > 0) {
-        return mRigs.length === 1 ? mRigs[0] : `${mRigs.join(", ")} (${mRigs.length} Systems)`;
+        return mRigs.length === 1 ? mRigs[0] : `${mRigs.join(" + ")} (${mRigs.length} Selected)`;
       }
-      if (bk.prefRig && bk.prefRig !== "ANY" && count === 1) return bk.prefRig;
-      return count > 1 ? `AUTO-ASSIGN ${count} ${bk.ty.toUpperCase()} SYSTEMS` : (bk.prefRig || "ANY");
+      return count > 1 ? `AUTO-ASSIGN ${count} ${bk.ty.toUpperCase()} SYSTEMS` : "ANY";
+    }
+
+    function calcRigSlotFare(rTy, hour = bk.h, durH = bk.d) {
+      const ty = RATE[rTy] ? rTy : "pc";
+      const ctrl = ty === "ps" ? Math.min(4, Math.max(1, Number(bk.k) || 1)) : 1;
+      const vrAdd = ty === "sim" && bk.vr2 ? 50 : 0;
+      let pkHr = RATE[ty][0] + vrAdd;
+      if (ty === "pc" && bk.grp) pkHr = 70;
+      if (ty === "ps" && (ctrl >= 4 || bk.grp)) pkHr = 80;
+      const totalMins = (Number(durH) || 2) * 60;
+      if (hour == null) {
+        return Math.round(pkHr * (Number(durH) || 2) * ctrl);
+      }
+      const startTotMins = Math.round(Number(hour) * 60);
+      const dObj = new Date(now());
+      dObj.setHours(Math.floor(startTotMins / 60), startTotMins % 60, 0, 0);
+      const [bCost] = price(ty, +dObj, totalMins, ctrl, 0, ty === "sim" && bk.vr2, bk.grp);
+      return Math.round(bCost);
+    }
+
+    // ============================================================================
+    // VOIDZONE v16.0 — ADVANCED MULTI-RESOURCE BOOKING ENGINE (SECTIONS 2–73)
+    // ============================================================================
+    const BOOKING_PACKAGES = [
+      { id: "PKG-DUO", name: "PC Duo Pack", desc: "2 × RTX 4060 PCs · 2 Hours", rigs: ["PC-1", "PC-2"], dur: 2, discPct: 10, minPlayers: 2, maxPlayers: 2 },
+      { id: "PKG-FRIENDS", name: "Friends 4-Pack", desc: "4 × Pro Row PCs · 2 Hours", rigs: ["PC-1", "PC-2", "PC-3", "PC-4"], dur: 2, discPct: 12, minPlayers: 4, maxPlayers: 4 },
+      { id: "PKG-LAN5", name: "5v5 LAN Squad Pack", desc: "5 × 5v5 Pod PCs · 3 Hours", rigs: ["PC-11", "PC-12", "PC-13", "PC-14", "PC-15"], dur: 3, discPct: 15, minPlayers: 5, maxPlayers: 5 },
+      { id: "PKG-CONSOLE", name: "Console Dual Lounge", desc: "2 × PS5 4K OLED Lounges · 2 Hours", rigs: ["PS5-1", "PS5-2"], dur: 2, discPct: 10, minPlayers: 2, maxPlayers: 8 },
+      { id: "PKG-HYBRID", name: "Hybrid Squad Pack", desc: "2 × PC + 1 × PS5 Lounge · 2 Hours", rigs: ["PC-1", "PC-2", "PS5-1"], dur: 2, discPct: 12, minPlayers: 3, maxPlayers: 6 },
+      { id: "PKG-SIMPC", name: "Apex Sim + PC Combo", desc: "1 × Racing Simulator + 1 × PC · 1 Hour", rigs: ["SIM-1", "PC-1"], dur: 1, discPct: 10, minPlayers: 2, maxPlayers: 2 },
+      { id: "PKG-PRIVATE", name: "Private Group Session (8 Players)", desc: "6 × PCs + 1 × PS5 + 1 × Simulator · 3 Hours", rigs: ["PC-1", "PC-2", "PC-3", "PC-4", "PC-5", "PC-6", "PS5-1", "SIM-1"], dur: 3, discPct: 18, minPlayers: 6, maxPlayers: 10 }
+    ];
+
+    const BOOKING_ADDONS = [
+      { id: "ADD-CTRL", name: "Extra DualSense Controller", category: "Hardware", price: 40, taxPct: 0 },
+      { id: "ADD-PROGEAR", name: "Pro Esports Peripherals (Zowie + Wooting)", category: "Hardware", price: 60, taxPct: 0 },
+      { id: "ADD-STREAM", name: "4K60 Stream & Local VOD Recording", category: "Creator", price: 150, taxPct: 0 },
+      { id: "ADD-COACH", name: "30-Min Radiant Coach VOD Review", category: "Academy", price: 250, taxPct: 0 },
+      { id: "ADD-COOLER", name: "Chiller Energy Combo (2× Red Bull at Seat)", category: "Beverage", price: 220, taxPct: 0 }
+    ];
+
+    const RESOURCE_RULES = {
+      pc:  { label: "PC Zone", minHrs: 0.5, maxHrs: 8, bufferMins: 0, capacity: 1, features: ["RTX 4060", "240Hz", "Mechanical KB", "<5ms Riot Direct"] },
+      ps:  { label: "PlayStation Zone", minHrs: 1.0, maxHrs: 6, bufferMins: 5, capacity: 4, features: ["4K OLED HDR", "DualSense", "Bean Bag Lounge"] },
+      sim: { label: "Simulation Zone", minHrs: 0.5, maxHrs: 2, bufferMins: 15, capacity: 1, features: ["Force-Feedback Wheel", "Pedals & Cockpit", "PS VR2 Ready"] },
+      vr:  { label: "VR Arena", minHrs: 0.5, maxHrs: 2, bufferMins: 15, capacity: 1, features: ["PS VR2", "Room-Scale 360°", "Sense Controllers"] }
+    };
+
+    function ensureBookingPlatformState() {
+      if (!bk.itemDurations || typeof bk.itemDurations !== "object") bk.itemDurations = {};
+      if (!bk.addons || typeof bk.addons !== "object") bk.addons = {};
+      if (!bk.zoneFilter) bk.zoneFilter = "ALL";
+      if (!bk.featureFilter) bk.featureFilter = "ALL";
+      if (!bk.availFilter) bk.availFilter = "ALL";
+      if (!bk.playerCount) bk.playerCount = 1;
+      if (!bk.teamName) bk.teamName = "";
+      if (!bk.participantsText) bk.participantsText = "";
+      if (!bk.packageId) bk.packageId = "";
+      if (!bk.recurrence) bk.recurrence = "ONCE"; // "ONCE" | "WEEKLY_2" | "WEEKLY_4"
+      if (!bk.historyFilter) bk.historyFilter = "ALL";
+      if (!bk.historySearch) bk.historySearch = "";
+      if (!Array.isArray(S.bookingWaitlist)) S.bookingWaitlist = [];
+      if (!Array.isArray(S.bookingAuditLog)) S.bookingAuditLog = [];
+    }
+
+    function recordBookingAudit(action, bookingId, detailsObj = {}) {
+      ensureBookingPlatformState();
+      const actorRole = ok ? staffRole : (S.authSession?.phone ? "customer" : "guest");
+      const actorId = S.authSession?.phone || bk.phone || "walk-in";
+      S.bookingAuditLog.unshift({
+        id: "AUD-" + Date.now() + "-" + Math.floor(Math.random() * 999),
+        bookingId: String(bookingId || "N/A"),
+        actorRole,
+        actorId,
+        action,
+        details: detailsObj,
+        timestamp: new Date(now()).toISOString()
+      });
+    }
+
+    function isResourceUnderMaintenance(rId) {
+      const pcs = S.ccboot?.pcs || [];
+      const found = pcs.find((p) => p.stationId === rId);
+      return Boolean(found && found.status === "MAINTENANCE");
+    }
+
+    function isResourceBusyAtWindow(rId, startH, durH, dayStr = day()) {
+      if (isResourceUnderMaintenance(rId)) return { busy: true, reason: "Maintenance" };
+      const rTy = rigTypeOf(rId);
+      const bufHrs = ((RESOURCE_RULES[rTy]?.bufferMins || 0) / 60);
+      const sH = Number(startH);
+      const eH = sH + Number(durH) + bufHrs;
+      const altId = rId.startsWith("PS5-") ? rId.replace("PS5-", "PS-") : rId.replace("PS-", "PS5-");
+      const conflict = S.book.find((b) =>
+        b.day === dayStr &&
+        b.status !== "Cancelled" &&
+        (b.stationId === rId || b.stationId === altId) &&
+        Math.max(sH, Number(b.h)) < Math.min(eH, Number(b.h) + Number(b.d) + bufHrs)
+      );
+      if (conflict) return { busy: true, reason: "Booked", conflict };
+      return { busy: false, reason: "Available" };
+    }
+
+    function getItemDurationHrs(rId) {
+      ensureBookingPlatformState();
+      const customD = Number(bk.itemDurations?.[rId]);
+      const baseD = Number.isFinite(customD) && customD > 0 ? customD : (Number(bk.d) || 2);
+      const rTy = rigTypeOf(rId);
+      const rules = RESOURCE_RULES[rTy] || RESOURCE_RULES.pc;
+      return Math.min(rules.maxHrs, Math.max(rules.minHrs, baseD));
+    }
+
+    function calcAddonsTotal() {
+      ensureBookingPlatformState();
+      let sum = 0;
+      const activeList = [];
+      for (const addon of BOOKING_ADDONS) {
+        const qty = Math.max(0, Number(bk.addons?.[addon.id] || 0));
+        if (qty > 0) {
+          const line = addon.price * qty;
+          sum += line;
+          activeList.push({ ...addon, qty, lineTotal: line });
+        }
+      }
+      return { addonsTotal: sum, activeAddons: activeList };
+    }
+
+    function findAlternativeSlots(requestedTy, requestedCount, startH, durH) {
+      const candidates = [];
+      for (const offset of [-1, -0.5, 0.5, 1, 1.5, 2]) {
+        const testH = Number(startH) + offset;
+        if (testH < OPEN || testH + durH > 24) continue;
+        const avail = getAvailableRigsInWindow(requestedTy, testH, durH);
+        if (avail >= requestedCount) {
+          candidates.push({ h: testH, label: fmtSlotTime(testH), avail });
+        }
+      }
+      return candidates.slice(0, 4);
+    }
+
+    function getZoneUtilizationStats() {
+      const currentDayStr = day();
+      const types = [
+        ["pc", "PC Zone (17 Rigs)", 17],
+        ["ps", "PS5 Zone (4 Lounges)", 4],
+        ["sim", "Simulator Zone (1 Cockpit)", 1]
+      ];
+      return types.map(([ty, label, cap]) => {
+        const activeCount = RIGS.filter((r) => r[1] === ty && S.rigs[r[0]]).length;
+        const bookedCount = S.book.filter((b) => b.day === currentDayStr && b.ty === ty && b.status !== "Cancelled").length;
+        const used = Math.min(cap, activeCount + bookedCount);
+        const pct = Math.min(100, Math.round((used / Math.max(1, cap)) * 100));
+        return { ty, label, cap, used, pct };
+      });
     }
     let servicePingRig = "PC-1";
     let serviceCalls = [
@@ -5644,7 +5866,7 @@ CREATE TABLE IF NOT EXISTS icafe_sync_queue (
       ["social", "Social"],
       ["creators", "Creators"],
       ["collaborate", "Collaborate"],
-      ["cafe", "Cooler & Bars"],
+      ["cafe", "F&B & Bars"],
       ["esports", "Esports & Academy"],
       ["rewards", "Rewards & Drops"],
       ["staff", "Staff & P&L Desk"],
@@ -5800,7 +6022,7 @@ CREATE TABLE IF NOT EXISTS icafe_sync_queue (
     }
 
     const VIEW_ICONS = { home: "🏠", book: "🎮", cafe: "🥤", rewards: "🎁", staff: "📊", developer: "⚙️" };
-    const VIEW_SHORT = { home: "Home", book: "Book", cafe: "Cooler", rewards: "Rewards", staff: "Staff", developer: "CMS" };
+    const VIEW_SHORT = { home: "Home", book: "Book", cafe: "F&B", rewards: "Rewards", staff: "Staff", developer: "CMS" };
 
     // ============================================================================
     // PART 2–4: COMPLETE DEVELOPER CONTROL PANEL & CMS ENGINE (PHASES 5–15)
@@ -5891,7 +6113,7 @@ CREATE TABLE IF NOT EXISTS icafe_sync_queue (
           { id: "social", label: "Social", visible: true },
           { id: "creators", label: "Creators", visible: true },
           { id: "collaborate", label: "Collaborate", visible: true },
-          { id: "cafe", label: "Cooler & Bars", visible: true },
+          { id: "cafe", label: "F&B & Bars", visible: true },
           { id: "esports", label: "Esports & Academy", visible: true },
           { id: "rewards", label: "Rewards & Drops", visible: true },
           { id: "staff", label: "Staff & P&L Desk", visible: true },
@@ -7388,7 +7610,7 @@ CREATE TABLE IF NOT EXISTS icafe_sync_queue (
       social: "Social",
       creators: "Creators",
       collaborate: "Collab",
-      cafe: "Cooler",
+      cafe: "F&B",
       esports: "Esports",
       rewards: "Rewards",
       staff: "Staff",
@@ -7436,7 +7658,7 @@ CREATE TABLE IF NOT EXISTS icafe_sync_queue (
     const COMBINED_PILLAR_LABELS = {
       home: "Home",
       book: "Book & Menu",
-      cafe: "Cooler & Menu",
+      cafe: "F&B & Menu",
       community: "Community & Esports",
       esports: "Esports & Community",
       creators: "Creators · Social · Collab",
@@ -7451,7 +7673,7 @@ CREATE TABLE IF NOT EXISTS icafe_sync_queue (
     const COMBINED_SHORT_LABELS = {
       home: "Home",
       book: "Book",
-      cafe: "Cooler",
+      cafe: "F&B",
       community: "Community",
       esports: "Esports",
       creators: "Creators & Social",
@@ -7497,9 +7719,13 @@ CREATE TABLE IF NOT EXISTS icafe_sync_queue (
         return `<button type="button" role="tab" class="vz-glass-tab ${isOn ? "on" : ""} ${shouldMinimize ? "vz-tab-minimized vz-tab-in-community" : ""}" style="--tab-tint-rgb:${tintRgb}" aria-selected="${isOn ? "true" : "false"}" ${isOn ? 'aria-current="page"' : ""} tabindex="${isOn ? "0" : "-1"}" data-action="nav" data-view="${esc(n.id)}" aria-label="${esc(n.label)}"><span class="vz-tab-dot" aria-hidden="true"></span><span class="vz-tab-icon" aria-hidden="true">${svgIcon}</span><span class="nl-full">${esc(displayLabel)}</span><span class="vz-tab-bar-ind" aria-hidden="true"></span></button>`;
       }).join("");
 
+      const isMemOn = activeView === "membership";
+      const isAllOn = activeView === "all";
+      const memBtn = `<button type="button" role="tab" class="vz-glass-tab ${isMemOn ? "on" : ""}" style="--tab-tint-rgb:245, 185, 40" aria-selected="${isMemOn ? "true" : "false"}" ${isMemOn ? 'aria-current="page"' : ""} tabindex="${isMemOn ? "0" : "-1"}" data-action="nav" data-view="membership" aria-label="Membership"><span class="vz-tab-dot" aria-hidden="true"></span><span class="vz-tab-icon" aria-hidden="true">${VIEW_SVG_ICONS.rewards}</span><span class="nl-full">Membership</span><span class="vz-tab-bar-ind" aria-hidden="true"></span></button>`;
+      const allBtn = `<button type="button" role="tab" class="vz-glass-tab ${isAllOn ? "on" : ""}" style="--tab-tint-rgb:56, 189, 248" aria-selected="${isAllOn ? "true" : "false"}" ${isAllOn ? 'aria-current="page"' : ""} tabindex="${isAllOn ? "0" : "-1"}" data-action="nav" data-view="all" aria-label="All Ecosystem Hub"><span class="vz-tab-dot" aria-hidden="true"></span><span class="vz-tab-icon" aria-hidden="true">${VIEW_SVG_ICONS.community}</span><span class="nl-full">All</span><span class="vz-tab-bar-ind" aria-hidden="true"></span></button>`;
       const toggleBtn = `<span class="vz-tab-group-sep" aria-hidden="true"></span><button type="button" class="vz-group-toggle-pill" data-action="toggle-nav-group" aria-expanded="${navGroupExpanded ? "true" : "false"}">${navGroupExpanded ? "⊟ Less" : "⊞ All"}</button>`;
 
-      return `<span class="vz-liquid-lens" style="--lens-tint-rgb:${activeTint}" aria-hidden="true"></span>${pillsHtml}${toggleBtn}`;
+      return `<span class="vz-liquid-lens" style="--lens-tint-rgb:${activeTint}" aria-hidden="true"></span>${pillsHtml}${memBtn}${allBtn}${toggleBtn}`;
     }
 
     function renderCombinedHubSwitcher(groupType) {
@@ -8491,6 +8717,28 @@ CREATE TABLE IF NOT EXISTS icafe_sync_queue (
           </div>
           ${renderIosGlassSubTabs(tabs, commSubTab, "comm-switch-tab", "data-tab", "community", "235, 45, 75")}
           ${renderProSearchBar("community", "Search posts, Valorant squads, Mumbai players, or tournaments...", tabs.find((t) => t[0] === commSubTab)?.[1] || "Community Home", commSubTab === "home")}
+          <div class="vz-open-grid-4" style="margin-top:12px">
+            <div class="vz-open-item">
+              <span class="vz-kicker" style="color:var(--ac)">UPCOMING TOURNAMENT</span>
+              <div style="font-weight:700;margin:4px 0">${esc(esp.tournaments[0]?.title || "Sunday 5v5 Valorant Cup")}</div>
+              <div class="m" style="font-size:12px">${esc(esp.tournaments[0]?.prize || "₹25,000 Pool")} · ${esp.tournaments[0]?.filledSlots || 12}/${esp.tournaments[0]?.totalSlots || 16} Squads</div>
+            </div>
+            <div class="vz-open-item">
+              <span class="vz-kicker" style="color:var(--gr)">WEEKLY CHALLENGE</span>
+              <div style="font-weight:700;margin:4px 0">${esc(eco.challenges[0]?.title || "30-Bot Hard Range Challenge")}</div>
+              <div class="m" style="font-size:12px">Reward: ${esc(eco.challenges[0]?.reward || "2h Free Pass")}</div>
+            </div>
+            <div class="vz-open-item">
+              <span class="vz-kicker" style="color:#38bdf8">FEATURED CREATOR</span>
+              <div style="font-weight:700;margin:4px 0">${esc(eco.creators[0]?.displayName || "Kratos Plays")} (@${esc(eco.creators[0]?.handle || "kratos_live")})</div>
+              <div class="m" style="font-size:12px">${(eco.creators[0]?.followers || 48500).toLocaleString()} Followers · Verified Partner</div>
+            </div>
+            <div class="vz-open-item">
+              <span class="vz-kicker" style="color:#fbbf24">OPEN BRAND COLLAB</span>
+              <div style="font-weight:700;margin:4px 0">${esc(eco.campaigns[0]?.name || "ZOWIE 240Hz Creator Reel")}</div>
+              <div class="m" style="font-size:12px">Pool: ${rs(eco.campaigns[0]?.budgetInr || 45000)} · Applications Open</div>
+            </div>
+          </div>
         </div>
 
         ${
@@ -9278,9 +9526,265 @@ CREATE TABLE IF NOT EXISTS icafe_sync_queue (
       </div>`;
     }
 
+    let memCalcHours = 16;
+    let allHubSearchQuery = "";
+
+    function membership() {
+      const activePhone = S.authSession?.phone || cur || "9820011223";
+      const c = S.cust[activePhone] || null;
+      const curTier = tierObjOf(c);
+      const regMonthlyGame = memCalcHours * RATE.pc[0];
+      const regMonthlyCooler = 800;
+
+      return `<div class="stagger-home-cards">
+        <div class="vz-member-card">
+          <div class="row-between">
+            <div>
+              <span class="tag">VOIDZONE DIGITAL MEMBERSHIP PASS · CUSTOMER LOYALTY LAYER</span>
+              <h1 style="margin:6px 0 4px">${c ? `${esc(c.n)} — ${esc(curTier.name)}` : "Choose Your VOIDZONE Membership"}</h1>
+              <p class="m" style="margin:0;max-width:640px">Save up to <b>20% on every gaming session</b>, <b>15% on Cooler drinks &amp; snacks</b>, hold reserved stations for up to <b>30 minutes</b>, and unlock boosted Drop Crate odds. Membership is strictly a customer loyalty tier and never alters Staff/Owner/Developer permissions.</p>
+            </div>
+            <div style="text-align:right">
+              <span class="badge ${curTier.badgeCls}" style="font-size:13px;padding:6px 14px">● ${c ? "ACTIVE MEMBER" : "GUEST PREVIEW"} · ${esc(curTier.name.toUpperCase())}</span>
+              <div class="m" style="font-family:var(--font-mono);font-size:11.5px;margin-top:6px">ID: VZ-MEM-${esc(activePhone.slice(-4))} · Hold: ${curTier.holdMins}m · Play Disc: ${Math.round(curTier.playDisc * 100)}%</div>
+            </div>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:14px">
+            <button type="button" class="b vz-btn-primary" data-action="nav" data-view="book">🎮 Book with Member Pricing →</button>
+            <button type="button" class="b o" data-action="nav" data-view="rewards">🎁 View Loyalty Rewards &amp; Crates →</button>
+            <button type="button" class="b o" data-action="nav" data-view="cafe">🥤 Order F&amp;B with Member Discount →</button>
+          </div>
+        </div>
+
+        <div class="c" style="margin-top:16px">
+          <div class="row-between" style="margin-bottom:12px">
+            <div>
+              <div class="tag">TRANSPARENT PLAN COMPARISON</div>
+              <h2 style="margin:2px 0 0">Compare VoidZone Membership Plans</h2>
+            </div>
+            <span class="m">Configured directly from VoidZone Pricing Engine</span>
+          </div>
+          <div class="g" style="grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:14px">
+            ${TIERS.map((t, idx) => {
+              const isCurrent = curTier.name === t.name;
+              const multLabel = idx === 0 ? "1.0× Base" : idx === 1 ? "1.25× Boost" : idx === 2 ? "1.5× Boost" : "2.0× Max Boost";
+              return `<div class="sub-panel" style="display:flex;flex-direction:column;justify-content:space-between;border-color:${isCurrent ? "rgba(255,107,0,0.68)" : "rgba(255,255,255,0.08)"}">
+                <div>
+                  <div class="row-between">
+                    <span class="badge ${t.badgeCls}">${esc(t.name)}</span>
+                    ${isCurrent ? `<span class="badge gld">Current Plan</span>` : ""}
+                  </div>
+                  <div class="vz-stat-value" style="margin:10px 0 4px;color:var(--tx)">${t.passPrice === 0 ? "Free" : `${rs(t.passPrice)}<span class="m" style="font-size:13px">/mo</span>`}</div>
+                  <div class="m" style="font-size:12px;margin-bottom:10px">Or unlock automatically at <b>${t.minH}h</b> lifetime play</div>
+                  <div class="vz-clean-list" style="font-size:12.5px">
+                    <div class="vz-clean-row" style="padding:6px 0"><span>Gaming Discount</span><b style="color:var(--gr)">${Math.round(t.playDisc * 100)}% Off</b></div>
+                    <div class="vz-clean-row" style="padding:6px 0"><span>F&amp;B &amp; Drinks</span><b style="color:var(--gr)">${Math.round(t.foodDisc * 100)}% Off</b></div>
+                    <div class="vz-clean-row" style="padding:6px 0"><span>Reservation Hold</span><b>${t.holdMins} mins</b></div>
+                    <div class="vz-clean-row" style="padding:6px 0"><span>Drop Crate Boost</span><b style="color:var(--ac)">+${t.dropBonusWt}% (${multLabel})</b></div>
+                    <div class="vz-clean-row" style="padding:6px 0"><span>Monthly HH Bonus</span><b>+${t.passBonusMins || 0}m Free Pass</b></div>
+                  </div>
+                </div>
+                <div style="margin-top:14px">
+                  ${
+                    idx === 0
+                      ? `<button type="button" class="step-pill" style="width:100%;justify-content:center" disabled>Included for All Players</button>`
+                      : `<button type="button" class="b ${isCurrent ? "o" : "gold"}" style="width:100%" data-action="membership-upgrade-tier" data-tier-idx="${idx}">
+                          ${isCurrent ? `↻ Renew ${esc(t.name)} (${rs(t.passPrice)})` : `⚡ Upgrade to ${esc(t.name)} (${rs(t.passPrice)})`}
+                        </button>`
+                  }
+                </div>
+              </div>`;
+            }).join("")}
+          </div>
+        </div>
+
+        <div class="c">
+          <div class="row-between">
+            <div>
+              <div class="tag">REAL-TIME MEMBERSHIP SAVINGS CALCULATOR</div>
+              <h2 style="margin:2px 0 0">See How Much You Save Every Month</h2>
+            </div>
+            <label class="m">Estimated Monthly Gaming Hours:
+              <select data-action="mem-calc-hours" style="margin-left:6px;padding:6px 10px">
+                ${[8, 12, 16, 24, 32, 40].map((h) => `<option value="${h}" ${h === memCalcHours ? "selected" : ""}>${h} Hours / month</option>`).join("")}
+              </select>
+            </label>
+          </div>
+          <div class="g" style="margin-top:12px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
+            ${TIERS.slice(1).map((t) => {
+              const playSaved = Math.round(regMonthlyGame * t.playDisc);
+              const coolerSaved = Math.round(regMonthlyCooler * t.foodDisc);
+              const passVal = Math.round(((t.passBonusMins || 0) / 60) * RATE.pc[1]);
+              const grossSaved = playSaved + coolerSaved + passVal;
+              const netSaved = grossSaved - t.passPrice;
+              return `<div class="sub-panel">
+                <span class="badge ${t.badgeCls}">${esc(t.name)} (${rs(t.passPrice)}/mo)</span>
+                <div style="margin-top:8px;font-size:13px">
+                  Gaming + Cooler + HH Value: <b>${rs(grossSaved)}/mo</b>
+                </div>
+                <div style="margin-top:4px;font-size:15px;font-weight:700;color:${netSaved >= 0 ? "var(--gr)" : "var(--tx)"}">
+                  Net Monthly Benefit: ${netSaved >= 0 ? `+${rs(netSaved)} Saved` : `${rs(grossSaved)} Value`}
+                </div>
+              </div>`;
+            }).join("")}
+          </div>
+        </div>
+      </div>`;
+    }
+
+    function all() {
+      const eco = ensureUnifiedEcosystemState();
+      const esp = ensureEsportsState();
+      const activePhone = S.authSession?.phone || cur || "9820011223";
+      const c = S.cust[activePhone] || null;
+      const curTier = tierObjOf(c);
+      const myBks = S.book.filter((b) => b.day === day() && b.status !== "Cancelled" && (!activePhone || b.p === activePhone));
+      const q = (allHubSearchQuery || "").trim().toLowerCase();
+
+      const groups = [
+        {
+          title: "PLAY",
+          kicker: "STATIONS · GAMES · TOURNAMENTS",
+          links: [
+            { label: "Book Station / Multi-Resource Builder", meta: `${free("pc")} PC · ${free("ps")} PS5 · ${free("sim")} Sim Free`, view: "book" },
+            { label: "Pre-Installed 240Hz & 4K Games", meta: "Valorant · CS2 · FC 25 · GTA V · GT7 · VR", view: "book" },
+            { label: "Weekly LAN Tournaments & Brackets", meta: `${esp.tournaments.length} Active Events`, view: "esports" }
+          ]
+        },
+        {
+          title: "COMMUNITY",
+          kicker: "PARTICIPATE · TEAMS · CHALLENGES",
+          links: [
+            { label: "Community Feed & Discussions", meta: `${eco.posts.length} Verified Posts`, view: "community", subTab: "feed" },
+            { label: "5v5 Teams & Squad Rosters", meta: `${eco.teams.length} Active Teams`, view: "community", subTab: "teams" },
+            { label: "Mumbai Player Discovery (LFG)", meta: `${eco.players.length} Players Listed`, view: "community", subTab: "players" },
+            { label: "Weekly In-Cafe Challenges", meta: `${eco.challenges.length} Live Challenges`, view: "community", subTab: "challenges" },
+            { label: "Community Ideas & Voting Roadmap", meta: `${eco.ideas.length} Ideas`, view: "community", subTab: "ideas" }
+          ]
+        },
+        {
+          title: "CREATORS",
+          kicker: "STREAMERS · SOCIAL · BRAND COLLABS",
+          links: [
+            { label: "Verified Creator Directory & Media Kits", meta: `${eco.creators.length} Creators`, view: "creators" },
+            { label: "Social Hub (Reels · Shorts · Streams)", meta: `${eco.socialContent.length} Canonical Clips`, view: "social" },
+            { label: "Brand & Influencer Collaborations", meta: `${eco.campaigns.length} Open Campaigns`, view: "collaborate" },
+            { label: "Sponsorship Inventory & Packages", meta: `${eco.sponsorshipInventory.length} Packages`, view: "collaborate" }
+          ]
+        },
+        {
+          title: "LEARN",
+          kicker: "ACADEMY · COACHING · STUDIO",
+          links: [
+            { label: "Esports Coaching Academy", meta: `${(esp.academy || esp.academyPrograms || []).length || 3} Coaching Tracks`, view: "esports" },
+            { label: "Aim Lab & IGL Tactical Workshops", meta: "Radiant & Pro Coaches", view: "esports" },
+            { label: "4K60 Dual-PC Streaming Studio Pods", meta: `${(esp.studioPods || esp.pods || []).length || 2} Acoustic Pods`, view: "esports" }
+          ]
+        },
+        {
+          title: "CAFÉ",
+          kicker: "F&B · DRINKS · AT-SEAT DELIVERY",
+          links: [
+            { label: "VoidZone F&B & Snack Bar", meta: `${CAFE_MENU.length} Chilled Items`, view: "cafe" },
+            { label: "Gamer Combos & Energy Drinks", meta: "Red Bull · Monster · Protein Bars", view: "cafe" },
+            { label: "At-Seat Service Bell & Gear Assist", meta: "Instant Delivery to Rig", view: "cafe" }
+          ]
+        },
+        {
+          title: "LOYALTY",
+          kicker: "MEMBERSHIP · REWARDS · PASSES",
+          links: [
+            { label: "Membership Plans & Savings Calculator", meta: `Current: ${curTier.name}`, view: "membership" },
+            { label: "Rewards, Streaks & Drop Crates", meta: `${c ? `${c.sp || 0} Spins · ${c.drops || 0} Crates` : "Cyber Wheel & Vault"}`, view: "rewards" },
+            { label: "Happy Hours Free Pass (10 AM – 2 PM)", meta: `${c ? `${c.pass || 0}m Held` : "₹60/hr PC · ₹80/hr PS5"}`, view: "rewards" }
+          ]
+        },
+        {
+          title: "VOIDZONE",
+          kicker: "LOCATIONS · HARDWARE · SUPPORT",
+          links: [
+            { label: "Mazgaon Flagship Arena (Tulsiwadi)", meta: "17 PCs · 4 PS5s · Sim · VR · 📞 8779087787", view: "home" },
+            { label: "Charni Road Lounge (Opera House)", meta: "South Mumbai Hub · 📞 8779487787", view: "home" },
+            { label: "Quick Station Booking", meta: "10:00 AM – 2:00 AM Daily", view: "book" }
+          ]
+        }
+      ];
+
+      const filteredGroups = groups
+        .map((g) => ({
+          ...g,
+          links: g.links.filter((lnk) => !q || `${g.title} ${g.kicker} ${lnk.label} ${lnk.meta}`.toLowerCase().includes(q))
+        }))
+        .filter((g) => g.links.length > 0);
+
+      return `<div class="stagger-home-cards">
+        <div class="c">
+          <div class="row-between">
+            <div>
+              <span class="tag">VOIDZONE ECOSYSTEM MAP · COMMAND-CENTER DISCOVERY HUB</span>
+              <h1 style="margin:4px 0">Explore Everything at VOIDZONE</h1>
+              <p class="m" style="margin:0">Jump directly to any station booking mode, membership plan, tournament, creator directory, or cooler category.</p>
+            </div>
+            <span class="badge gld">7 Core Pillars · Connected Account</span>
+          </div>
+
+          <div class="vz-pro-search-bar" style="margin-top:12px">
+            <div class="vz-pro-search-input-wrap">
+              <input id="all-hub-search" type="search" class="vz-pro-search-input" value="${esc(allHubSearchQuery)}" placeholder="Search VOIDZONE (pages, games, tournaments, creators, cooler items, membership)...">
+              <button type="button" class="step-pill" data-action="all-hub-search-btn">🔍 Search</button>
+            </div>
+            ${q ? `<button type="button" class="vz-pro-clear-btn" data-action="all-hub-clear-search">✕ Clear</button>` : ""}
+          </div>
+
+          <div class="vz-open-grid-4" style="margin-top:12px">
+            <div class="vz-open-item vz-open-clickable" data-action="nav" data-view="book">
+              <span class="vz-kicker">YOUR BOOKINGS TODAY</span>
+              <div style="font-weight:700;font-size:15px;margin-top:4px">${myBks.length} Active Slot(s)</div>
+              <div class="m" style="font-size:12px">Tap to book or manage stations →</div>
+            </div>
+            <div class="vz-open-item vz-open-clickable" data-action="nav" data-view="membership">
+              <span class="vz-kicker">YOUR MEMBERSHIP</span>
+              <div style="font-weight:700;font-size:15px;margin-top:4px;color:var(--ac)">${esc(curTier.name)}</div>
+              <div class="m" style="font-size:12px">${Math.round(curTier.playDisc * 100)}% Play Disc · ${curTier.holdMins}m Hold →</div>
+            </div>
+            <div class="vz-open-item vz-open-clickable" data-action="nav" data-view="rewards">
+              <span class="vz-kicker">WALLET &amp; REWARDS</span>
+              <div style="font-weight:700;font-size:15px;margin-top:4px;color:var(--gr)">${c ? `${rs(c.w)} · ${c.sp || 0} Spins` : "Sign In for Vault"}</div>
+              <div class="m" style="font-size:12px">${c ? `${c.drops || 0} Crates · ${c.shards || 0}/3 Shards` : "Earn spins & Valorant drops →"}</div>
+            </div>
+            <div class="vz-open-item vz-open-clickable" data-action="nav" data-view="cafe">
+              <span class="vz-kicker">F&amp;B &amp; AT-SEAT</span>
+              <div style="font-weight:700;font-size:15px;margin-top:4px">${(S.cafeLog || []).length} Recent Order(s)</div>
+              <div class="m" style="font-size:12px">Order cold drinks &amp; snacks →</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="vz-all-hub-grid">
+          ${
+            filteredGroups.length > 0
+              ? filteredGroups.map((grp) => `<div class="vz-all-group-box">
+                  <span class="vz-kicker" style="color:var(--ac)">${esc(grp.kicker)}</span>
+                  <h2 style="margin:2px 0 8px">${esc(grp.title)}</h2>
+                  <div>
+                    ${grp.links.map((lnk) => `<button type="button" class="vz-all-link-row" data-action="all-hub-go" data-view="${esc(lnk.view)}" ${lnk.subTab ? `data-subtab="${esc(lnk.subTab)}"` : ""}>
+                      <div>
+                        <div>${esc(lnk.label)}</div>
+                        <div class="m" style="font-size:11.5px;font-weight:400">${esc(lnk.meta)}</div>
+                      </div>
+                      <span style="color:var(--ac);font-weight:700">→</span>
+                    </button>`).join("")}
+                  </div>
+                </div>`).join("")
+              : renderEmptyState("🧭", "No matching VoidZone destinations", "Clear your search query to view all 7 VoidZone ecosystem pillars.", "Clear Search", "all-hub-clear-search")
+          }
+        </div>
+      </div>`;
+    }
+
     function renderApp() {
       applyActiveCmsConfig();
-      const viewFns = { home, book, community, social, creators, collaborate, cafe, esports, rewards, staff, owner, developer };
+      const viewFns = { home, book, community, social, creators, collaborate, cafe, esports, rewards, membership, all, staff, owner, developer };
       const appEl = $("#app");
       if (appEl) appEl.innerHTML = (viewFns[view] || home)();
       if (view === "rewards") drawWheel();
@@ -9351,15 +9855,49 @@ CREATE TABLE IF NOT EXISTS icafe_sync_queue (
           <span class="vz-kicker"><span style="color:var(--gr)">●</span> ${fr} OF ${tot} STATIONS OPEN NOW · MAZGAON &amp; CHARNI ROAD · 10 AM – 2 AM</span>
           <span class="m" style="font-size:12px">4.9 ★ (234+ Verified Gamers)</span>
         </div>
-        <h1>${esc(cfg.branding?.tagline || "Step Into the Zone. Play. Chill. Repeat.")}</h1>
-        <p class="m" style="max-width:680px;margin:0 0 20px;font-size:15px">Mumbai’s esports arena and creator lounge. 17 RTX 4060 240Hz PCs, 4 PS5 Bean Bag Lounges, Force-Feedback Racing Simulator, and PS VR2 under one connected account.</p>
-        <div class="vz-hero-actions">
-          <button type="button" class="b vz-btn-primary" data-action="nav" data-view="book">Book a Station →</button>
-          <button type="button" class="b o" data-action="nav" data-view="community">Community &amp; Esports</button>
-          <button type="button" class="b o" data-action="nav" data-view="cafe">Cooler Menu</button>
-          <button type="button" class="b o" data-action="nav" data-view="rewards">Membership &amp; Drops</button>
-        </div>
-        <div class="bar" style="margin:18px 0 6px;height:6px"><i style="width:${(fr / tot) * 100}%"></i></div>
+        ${(() => {
+          const activePhone = S.authSession?.phone || cur || "";
+          const activePlayer = activePhone ? S.cust[activePhone] : null;
+          const activeTier = tierObjOf(activePlayer);
+          const myTodayBookings = S.book.filter((b) => b.day === day() && b.status !== "Cancelled" && (!activePhone || b.p === activePhone));
+          const nextBooking = myTodayBookings[0] || null;
+          const hrNow = new Date(now()).getHours();
+          const todGreeting = hrNow < 12 ? "Good morning" : hrNow < 17 ? "Good afternoon" : "Good evening";
+          return `
+            ${activePlayer ? `<div class="vz-kicker" style="color:var(--ac);margin-bottom:4px">👋 ${todGreeting}, ${esc(activePlayer.n)} — Your next gaming session is ready</div>` : ""}
+            <h1>${esc(cfg.branding?.tagline || "Step Into the Zone. Play. Chill. Repeat.")}</h1>
+            <p class="m" style="max-width:680px;margin:0 0 14px;font-size:15px">Mumbai’s 240Hz esports arena and console lounge (Mazgaon &amp; Charni Road). Reserve 17 RTX 4060 PCs, 4 PS5 4K OLED Lounges, Racing Simulator, and PS VR2 under one connected account.</p>
+            <div class="vz-hero-actions">
+              <button type="button" class="b vz-btn-primary" data-action="nav" data-view="book">Book Now →</button>
+              <button type="button" class="b o" data-action="nav" data-view="all">Explore Ecosystem (All)</button>
+            </div>
+            <div class="vz-quick-actions-row" role="navigation" aria-label="Quick Actions">
+              <button type="button" class="step-pill" data-action="nav" data-view="book">🎮 Book</button>
+              <button type="button" class="step-pill" data-action="nav" data-view="membership">💎 Membership (${esc(activeTier.name)})</button>
+              <button type="button" class="step-pill" data-action="nav" data-view="rewards">🎁 Rewards (${activePlayer ? `${activePlayer.sp || 0} Spins` : "Drops & XP"})</button>
+              <button type="button" class="step-pill" data-action="nav" data-view="community">🌐 Community</button>
+              <button type="button" class="step-pill" data-action="nav" data-view="cafe">🥤 F&B</button>
+              <button type="button" class="step-pill" data-action="nav" data-view="all">🧭 All Hub</button>
+            </div>
+            <div class="sub-panel" style="margin-top:12px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+              ${
+                nextBooking
+                  ? `<div>
+                      <span class="badge gld">LIVE UPCOMING BOOKING · ${esc(nextBooking.id)}</span>
+                      <b style="margin-left:8px">${esc(nextBooking.stationId || nextBooking.ty.toUpperCase())} · ${fmtSlotTime(nextBooking.h)} – ${fmtSlotTime(Number(nextBooking.h) + Number(nextBooking.d))} (${fmtDurHours(nextBooking.d)})</b>
+                      <span class="m" style="margin-left:8px">Status: <b>${esc(nextBooking.status || "Confirmed")}</b></span>
+                    </div>
+                    <button type="button" class="step-pill" data-action="nav" data-view="book">Manage Booking →</button>`
+                  : `<div>
+                      <span class="vz-kicker" style="color:var(--ac)">LIVE SESSION FINDER</span>
+                      <b style="margin-left:8px">Find your next session — ${free("pc")} PC · ${free("ps")} PS5 · ${free("sim")} Sim open right now</b>
+                    </div>
+                    <button type="button" class="step-pill" data-action="nav" data-view="book">Book Now →</button>`
+              }
+            </div>
+          `;
+        })()}
+        <div class="bar" style="margin:14px 0 6px;height:6px"><i style="width:${(fr / tot) * 100}%"></i></div>
         ${renderHomeCompactPromo()}
       </section>
 
@@ -9736,6 +10274,7 @@ CREATE TABLE IF NOT EXISTS icafe_sync_queue (
     function estBreakdown(hour = bk.h, phoneForDiscount = bk.phone) {
       const c = (bk.applyDisc && phoneForDiscount) ? S.cust[phoneForDiscount] : null;
       const tObj = (bk.applyDisc && c) ? tierObjOf(c) : TIERS[0];
+      const mRigs = getEffectiveMultiRigs();
       const systemsCount = getSelectedSystemsCount();
       const controllers = bk.ty === "ps" ? Math.min(4, Math.max(1, Number(bk.k) || 1)) : 1;
       const totalMins = bk.d * 60;
@@ -9747,8 +10286,24 @@ CREATE TABLE IF NOT EXISTS icafe_sync_queue (
       if (bk.ty === "pc" && bk.grp) peakHourly = 70;
       if (bk.ty === "ps" && (controllers >= 4 || bk.grp)) peakHourly = 80;
 
-      const hhBase = hhHourly * bk.d * controllers * systemsCount;
-      const peakBase = peakHourly * bk.d * controllers * systemsCount;
+      const rigItems = mRigs.length > 0
+        ? mRigs.map((rId) => ({ rigId: rId, ty: rigTypeOf(rId) }))
+        : Array.from({ length: systemsCount }, (_, idx) => ({ rigId: `${bk.ty.toUpperCase()}-#${idx + 1}`, ty: bk.ty }));
+
+      let hhBase = 0;
+      let peakBase = 0;
+      for (const item of rigItems) {
+        const iTy = RATE[item.ty] ? item.ty : "pc";
+        const iCtrl = iTy === "ps" ? Math.min(4, Math.max(1, Number(bk.k) || 1)) : 1;
+        const iVr = iTy === "sim" && bk.vr2 ? 50 : 0;
+        const iHh = RATE[iTy][1] + iVr;
+        let iPk = RATE[iTy][0] + iVr;
+        if (iTy === "pc" && bk.grp) iPk = 70;
+        if (iTy === "ps" && (iCtrl >= 4 || bk.grp)) iPk = 80;
+        hhBase += iHh * bk.d * iCtrl;
+        peakBase += iPk * bk.d * iCtrl;
+      }
+
       const hhFinal = Math.round(hhBase * (1 - tObj.playDisc));
       const peakFinal = Math.round(peakBase * (1 - tObj.playDisc));
 
@@ -9757,6 +10312,8 @@ CREATE TABLE IF NOT EXISTS icafe_sync_queue (
           hasSlot: false,
           c,
           tObj,
+          systemsCount,
+          itemizedRigs: rigItems.map((it) => ({ ...it, cost: calcRigSlotFare(it.ty, null, bk.d) })),
           controllers,
           totalMins,
           baseCost: peakBase,
@@ -9776,17 +10333,44 @@ CREATE TABLE IF NOT EXISTS icafe_sync_queue (
       const startTotMins = Math.round(Number(hour) * 60);
       const d = new Date(now());
       d.setHours(Math.floor(startTotMins / 60), startTotMins % 60, 0, 0);
-      const [singleBaseCost] = price(bk.ty, +d, totalMins, controllers, 0, bk.vr2, bk.grp);
-      const [singleAfterPassCost, passUsedMins] = price(bk.ty, +d, totalMins, controllers, freePassMins, bk.vr2, bk.grp);
-      const baseCost = singleBaseCost * systemsCount;
-      const afterPassCost = singleAfterPassCost * systemsCount;
+
+      ensureBookingPlatformState();
+      let baseCost = 0;
+      let afterPassCost = 0;
+      let passUsedMins = 0;
+      let remPassMins = freePassMins;
+      const itemizedRigs = [];
+
+      for (const item of rigItems) {
+        const iTy = RATE[item.ty] ? item.ty : "pc";
+        const iCtrl = iTy === "ps" ? Math.min(4, Math.max(1, Number(bk.k) || 1)) : 1;
+        const itemDurH = (Array.isArray(bk.multiRigs) && bk.multiRigs.includes(item.rigId))
+          ? getItemDurationHrs(item.rigId)
+          : (Number(bk.d) || 2);
+        const itemMins = itemDurH * 60;
+        const [itemBase] = price(iTy, +d, itemMins, iCtrl, 0, iTy === "sim" && bk.vr2, bk.grp);
+        const [itemAfterPass, itemPassUsed] = price(iTy, +d, itemMins, iCtrl, remPassMins, iTy === "sim" && bk.vr2, bk.grp);
+        remPassMins = Math.max(0, remPassMins - itemPassUsed);
+        baseCost += itemBase;
+        afterPassCost += itemAfterPass;
+        passUsedMins += itemPassUsed;
+        itemizedRigs.push({ rigId: item.rigId, ty: iTy, durH: itemDurH, cost: Math.round(itemBase) });
+      }
+
+      const activePkg = BOOKING_PACKAGES.find((pk) => pk.id === bk.packageId) || null;
+      const pkgDiscSaved = activePkg ? Math.round(afterPassCost * (activePkg.discPct / 100)) : 0;
+      const afterPkgCost = Math.max(0, afterPassCost - pkgDiscSaved);
+
       const passSaved = Math.max(0, baseCost - afterPassCost);
       const discRate = tObj.playDisc;
-      const discSaved = afterPassCost * discRate;
-      const afterMemberCost = Math.max(0, Math.round(afterPassCost - discSaved));
+      const discSaved = afterPkgCost * discRate;
+      const afterMemberCost = Math.max(0, Math.round(afterPkgCost - discSaved));
       const promoEval = evaluatePromoOffer(bk.promoCode, afterMemberCost, bk.ty.toUpperCase());
       const promoSaved = promoEval.valid ? promoEval.discountAmt : 0;
-      const finalCost = Math.max(0, afterMemberCost - promoSaved);
+      const { addonsTotal, activeAddons } = calcAddonsTotal();
+      const recurMult = bk.recurrence === "WEEKLY_4" ? 4 : bk.recurrence === "WEEKLY_2" ? 2 : 1;
+      const singleSessionFinal = Math.max(0, afterMemberCost - promoSaved + addonsTotal);
+      const finalCost = singleSessionFinal * recurMult;
 
       let hhBlocks = 0;
       let peakBlocks = 0;
@@ -9797,10 +10381,10 @@ CREATE TABLE IF NOT EXISTS icafe_sync_queue (
         const h = new Date(+d + i * 9e5).getHours();
         if (h >= HH[0] && h < HH[1]) {
           hhBlocks++;
-          hhSliceCost += (hhHourly / 4) * controllers * systemsCount;
+          hhSliceCost += (hhBase / Math.max(0.25, bk.d)) / 4;
         } else {
           peakBlocks++;
-          peakSliceCost += (peakHourly / 4) * controllers * systemsCount;
+          peakSliceCost += (peakBase / Math.max(0.25, bk.d)) / 4;
         }
       }
 
@@ -9809,6 +10393,12 @@ CREATE TABLE IF NOT EXISTS icafe_sync_queue (
         c,
         tObj,
         systemsCount,
+        itemizedRigs,
+        activePkg,
+        pkgDiscSaved,
+        addonsTotal,
+        activeAddons,
+        recurMult,
         perSystemCost: Math.round(finalCost / systemsCount),
         controllers,
         totalMins,
@@ -9874,10 +10464,14 @@ CREATE TABLE IF NOT EXISTS icafe_sync_queue (
         <div class="g" style="margin-top:12px;margin-bottom:0;padding-top:12px;border-top:1px solid var(--bd)">
           <div class="m">
             <b>Start → End Time Slice Breakdown</b><br>
-            ${esc((NAME[bk.ty] || "").split(" ·")[0])} · <b>${fmtDurHours(bk.d)}</b>${bk.ty === "ps" ? ` × ${info.controllers} ctrl` : ""}${bk.ty === "sim" && bk.vr2 ? " + PS VR2 (+₹50/h)" : ""}${bk.grp ? " (Squad Rate)" : ""}<br>
+            ${
+              (info.itemizedRigs && info.itemizedRigs.length > 1)
+                ? `<span style="color:var(--ac);font-weight:700">${info.itemizedRigs.length} Selected Stations:</span> ${info.itemizedRigs.map((ir) => `<b>${esc(ir.rigId)}</b> (${rs(ir.cost)})`).join(" + ")}<br>`
+                : `${esc((NAME[bk.ty] || "").split(" ·")[0])} (${esc(getSelectedSystemsLabel())}) · <b>${fmtDurHours(bk.d)}</b>${bk.ty === "ps" ? ` × ${info.controllers} ctrl` : ""}${bk.ty === "sim" && bk.vr2 ? " + PS VR2 (+₹50/h)" : ""}${bk.grp ? " (Squad Rate)" : ""}<br>`
+            }
             ${
               info.hasSlot
-                ? `${info.hhHours > 0 ? `Happy Hr (10am–2pm): <b>${info.hhHours}h × ${rs(info.hhHourly * info.controllers)}/h = ${rs(info.hhSliceCost)}</b><br>` : ""}${info.peakHours > 0 ? `Regular (2pm–2am): <b>${info.peakHours}h × ${rs(info.peakHourly * info.controllers)}/h = ${rs(info.peakSliceCost)}</b><br>` : ""}Total Base Fare: <b>${rs(info.baseCost)}</b>`
+                ? `${info.hhHours > 0 ? `Happy Hr (10am–2pm): <b>${info.hhHours}h = ${rs(info.hhSliceCost)}</b><br>` : ""}${info.peakHours > 0 ? `Regular (2pm–2am): <b>${info.peakHours}h = ${rs(info.peakSliceCost)}</b><br>` : ""}Total Base Fare (${info.systemsCount} System${info.systemsCount > 1 ? "s" : ""}): <b style="color:var(--ac)">${rs(info.baseCost)}</b>`
                 : `Happy Hr (10am–2pm): ${rs(RATE[bk.ty][1])}/h · Peak: ${rs(RATE[bk.ty][0])}/h`
             }
           </div>
@@ -10003,30 +10597,56 @@ CREATE TABLE IF NOT EXISTS icafe_sync_queue (
               ${(Array.isArray(bk.multiRigs) && bk.multiRigs.length > 0) || (bk.qty > 1) || (bk.prefRig && bk.prefRig !== "ANY") ? `<button type="button" class="step-pill" data-action="clear-pref-rigs">✕ Reset to 1 Auto (ANY)</button>` : ""}
             </div>
           </div>
-          <div class="vz-ios-subtab-bar" role="tablist" aria-label="Select Pre-Warm Game" style="margin:4px 0 12px">
-            ${GAME_LIBRARY.map(
-              (g) =>
-                `<button type="button" role="tab" class="vz-glass-tab ${bk.game === g.title ? "on" : ""}" style="--tab-tint-rgb:255, 107, 0" aria-selected="${bk.game === g.title ? "true" : "false"}" data-action="book-game" data-game="${esc(g.title)}" data-type="${g.ty}"><span class="vz-tab-dot" aria-hidden="true"></span><span class="vz-tab-icon" aria-hidden="true">🎮</span><span class="vz-tab-lbl">${esc(g.title)} <span class="m" style="font-size:10.5px">(${esc(g.spec)})</span></span><span class="vz-tab-bar-ind" aria-hidden="true"></span></button>`
-            ).join("")}
+          <div class="vz-ios-subtab-bar" role="tablist" aria-label="Select Pre-Warm Games (Multi-Select)" style="margin:4px 0 12px">
+            ${GAME_LIBRARY.map((g) => {
+              const gSelected = Array.isArray(bk.multiGames) ? bk.multiGames.includes(g.title) : bk.game === g.title;
+              return `<button type="button" role="tab" class="vz-glass-tab ${gSelected ? "on" : ""}" style="--tab-tint-rgb:255, 107, 0" aria-selected="${gSelected ? "true" : "false"}" data-action="book-game" data-game="${esc(g.title)}" data-type="${g.ty}"><span class="vz-tab-dot" aria-hidden="true"></span><span class="vz-tab-icon" aria-hidden="true">${gSelected ? "✓" : "🎮"}</span><span class="vz-tab-lbl">${esc(g.title)} <span class="m" style="font-size:10.5px">(${esc(g.spec)})</span></span><span class="vz-tab-bar-ind" aria-hidden="true"></span></button>`;
+            }).join("")}
           </div>
-          <div class="rigs" style="grid-template-columns:repeat(auto-fill,minmax(108px,1fr));margin:8px 0 4px">
+          <div class="rigs" style="grid-template-columns:repeat(auto-fill,minmax(122px,1fr));margin:8px 0 4px">
             ${RIGS.map(([rId, rTy]) => {
               const activeObj = S.rigs[rId];
               const elapsedM = activeObj ? Math.max(0, Math.floor((now() - activeObj.s) / 6e4)) : 0;
               const endingSoon = activeObj && elapsedM >= 45 && elapsedM <= 60;
-              const isSelected = (Array.isArray(bk.multiRigs) && bk.multiRigs.includes(rId)) || (!bk.multiRigs?.length && bk.prefRig === rId);
+              const effRigs = getEffectiveMultiRigs();
+              const isSelected = effRigs.includes(rId);
+              const rigFare = calcRigSlotFare(rTy, bk.h, bk.d);
               const zoneTag = rId.startsWith("PC-") ? (Number(rId.slice(3)) <= 10 ? "Pro Row" : "5v5 Pod") : rId.startsWith("PS5") ? "Bean Bag" : "Cockpit";
-              return `<button type="button" class="rig ${activeObj ? "u" : "f"} ${isSelected ? "s" : ""}" aria-pressed="${isSelected ? "true" : "false"}" data-action="pick-pref-rig" data-rig="${rId}" data-type="${rTy}" style="padding:9px 10px">
-                <b>${rId}</b> <span class="m" style="font-size:10px">${zoneTag}</span><br>
-                <span style="font-size:11px;color:${endingSoon ? "var(--am)" : activeObj ? "var(--ac-2)" : "var(--gr)"}">${
-                  endingSoon ? `Ending ~${60 - elapsedM}m` : activeObj ? `In Play (${elapsedM}m)` : "● Free"
-                }</span>
+              return `<button type="button" class="rig ${activeObj ? "u" : "f"} ${isSelected ? "s" : ""}" aria-pressed="${isSelected ? "true" : "false"}" data-action="pick-pref-rig" data-rig="${rId}" data-type="${rTy}" style="padding:9px 10px;text-align:left">
+                <div style="display:flex;justify-content:space-between;align-items:center">
+                  <b>${isSelected ? "✓ " : ""}${rId}</b>
+                  <span class="m" style="font-size:10px">${zoneTag}</span>
+                </div>
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-top:4px">
+                  <span style="font-size:11px;color:${isSelected ? "#ff8a3d" : endingSoon ? "var(--am)" : activeObj ? "var(--ac-2)" : "var(--gr)"};font-weight:${isSelected ? "700" : "500"}">${
+                    isSelected ? "Selected" : endingSoon ? `~${60 - elapsedM}m` : activeObj ? `Busy (${elapsedM}m)` : "● Free"
+                  }</span>
+                  <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;color:${isSelected ? "#fff" : "var(--tx)"}">+${rs(rigFare)}</span>
+                </div>
               </button>`;
             }).join("")}
           </div>
         </div>
 
+        ${renderAdvancedMultiResourceControls(curEst, availInWindow)}
+
+        ${renderMultiSlotQueuePanel(curEst)}
+
         <div id="book-est-card-wrap">${renderBookEstimateCard()}</div>
+
+        <div class="sub-panel" style="margin-top:10px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap">
+          <div class="m" style="font-size:12.5px">
+            💎 <b>Membership &amp; Loyalty Connection:</b> ${
+              previewTier.playDisc > 0
+                ? `Your <b>${esc(previewTier.name)}</b> saves <b>${Math.round(previewTier.playDisc * 100)}%</b> on sessions and holds slots for <b>${previewTier.holdMins} mins</b>.`
+                : `Save up to <b>20% on every booking</b> + get <b>30-min slot holds</b> with VoidZone Membership.`
+            }
+          </div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap">
+            <button type="button" class="step-pill" data-action="nav" data-view="membership">💎 Compare Membership Plans →</button>
+            <button type="button" class="step-pill" data-action="nav" data-view="rewards">🎁 View Loyalty Rewards →</button>
+          </div>
+        </div>
 
         ${renderBookedSlotsOnlySection(todaysBookings)}
 
@@ -10043,11 +10663,19 @@ CREATE TABLE IF NOT EXISTS icafe_sync_queue (
           <input id="bpromo" aria-label="Promo Coupon Code" placeholder="Promo Code (e.g. VOID20)" maxlength="20" value="${esc(bk.promoCode || "")}" style="width:175px;text-transform:uppercase">
           <button type="button" class="b o" data-action="apply-book-promo" style="padding:9px 14px">🏷️ Apply Promo</button>
         </div>
-        <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:8px">
-          <button type="button" class="b" id="book-btn-wallet" data-action="confirm-book" data-pay="wallet" ${availInWindow < getSelectedSystemsCount() ? "disabled" : ""}>Pay from wallet (${getSelectedSystemsCount() > 1 ? `${getSelectedSystemsCount()} Systems · ` : ""}${rs(curEst.finalCost)})</button>
-          <button type="button" class="b o" id="book-btn-desk" data-action="confirm-book" data-pay="desk" ${availInWindow < getSelectedSystemsCount() ? "disabled" : ""}>Pay at desk (${getSelectedSystemsCount() > 1 ? `${getSelectedSystemsCount()} Systems · ` : ""}Est. ${rs(curEst.finalCost)} · held ${previewTier.holdMins} min)</button>
-          <button type="button" class="b gold" data-action="whatsapp-book">💬 Book ${getSelectedSystemsCount() > 1 ? `${getSelectedSystemsCount()} Systems ` : ""}&amp; Send Ticket on WhatsApp (8779087787)</button>
-        </div>
+        ${(() => {
+          const qLen = Array.isArray(bk.slotQueue) ? bk.slotQueue.length : 0;
+          const checkoutTotal = getQueuedBookingsTotal(curEst.finalCost);
+          const labelPrefix = qLen > 0
+            ? `${qLen} Queued Booking${qLen > 1 ? "s" : ""} · `
+            : (getSelectedSystemsCount() > 1 ? `${getSelectedSystemsCount()} Systems · ` : "");
+          const isDisabled = qLen === 0 && availInWindow < getSelectedSystemsCount();
+          return `<div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:8px">
+            <button type="button" class="b" id="book-btn-wallet" data-action="confirm-book" data-pay="wallet" ${isDisabled ? "disabled" : ""}>Pay from wallet (${labelPrefix}${rs(checkoutTotal)})</button>
+            <button type="button" class="b o" id="book-btn-desk" data-action="confirm-book" data-pay="desk" ${isDisabled ? "disabled" : ""}>Pay at desk (${labelPrefix}Est. ${rs(checkoutTotal)} · held ${previewTier.holdMins} min)</button>
+            <button type="button" class="b gold" data-action="whatsapp-book">💬 Book ${qLen > 0 ? `${qLen} Queued Slot(s) ` : (getSelectedSystemsCount() > 1 ? `${getSelectedSystemsCount()} Systems ` : "")}&amp; Send Ticket on WhatsApp (8779087787)</button>
+          </div>`;
+        })()}
       </div>
       ${(() => {
         const isStaffOrOwner = ok && (staffRole === "staff" || staffRole === "owner");
@@ -10057,13 +10685,16 @@ CREATE TABLE IF NOT EXISTS icafe_sync_queue (
           : todaysBookings.filter((b) => activePlayerPhone && b.p === activePlayerPhone);
         if (!myBookings.length) return "";
         return `<div class="c">
-          <h2>${isStaffOrOwner ? `Today’s Booked Slots (${myBookings.length})` : `Your Confirmed Reservation Tickets (${myBookings.length})`}</h2>
+          <div class="row-between" style="margin-bottom:8px">
+            <h2 style="margin:0">${isStaffOrOwner ? `Today’s Booked Slots (${myBookings.length})` : `Your Confirmed Reservation Tickets (${myBookings.length} Active Under 1 Account)`}</h2>
+            <button type="button" class="step-pill" data-action="book-another-slot">➕ Book Another Slot (Same Account)</button>
+          </div>
           ${myBookings
             .map(
               (b) =>
-                `<div class="m" style="padding:8px 0;border-bottom:1px solid var(--bd-subtle)"><span class="badge slv" style="margin-right:6px">${esc(b.id)}</span> <span class="badge gld" style="margin-right:6px">${esc(b.stationId || b.ty.toUpperCase())}</span> <b>${esc(b.n)}</b> · ${esc((NAME[b.ty] || "").split(" ·")[0])}${b.vr2 ? " (+VR2)" : ""}${b.grp ? " (Squad)" : ""} · <b>${fmtSlotTime(b.h)} – ${fmtSlotTime(Number(b.h) + Number(b.d))}</b> (${fmtDurHours(b.d)}) · Est. <b style="color:var(--ac)">${rs(b.estCost ?? b.prepaid ?? 0)}</b> · ${esc(b.pay)}${
+                `<div class="m row-between" style="padding:8px 0;border-bottom:1px solid var(--bd-subtle)"><div><span class="badge slv" style="margin-right:6px">${esc(b.id)}</span> <span class="badge gld" style="margin-right:6px">${esc(b.stationId || b.ty.toUpperCase())}</span> <b>${esc(b.n)}</b> · ${esc((NAME[b.ty] || "").split(" ·")[0])}${b.vr2 ? " (+VR2)" : ""}${b.grp ? " (Squad)" : ""} · <b>${fmtSlotTime(b.h)} – ${fmtSlotTime(Number(b.h) + Number(b.d))}</b> (${fmtDurHours(b.d)}) · Est. <b style="color:var(--ac)">${rs(b.estCost ?? b.prepaid ?? 0)}</b> · ${esc(b.pay)}${
                   b.seated ? ' · <span class="badge" style="color:var(--gr)">Seated</span>' : ""
-                }</div>`
+                }</div><div style="display:flex;gap:5px;flex-wrap:wrap"><button type="button" class="step-pill" style="padding:3px 9px;font-size:11px" data-action="book-followup-slot" data-id="${esc(b.id)}">+ Next Slot</button><button type="button" class="step-pill" style="padding:3px 9px;font-size:11px" data-action="duplicate-booked-slot" data-id="${esc(b.id)}">🔁 +1 Rig</button><button type="button" class="step-pill" style="padding:3px 9px;font-size:11px" data-action="reschedule-booked-slot" data-id="${esc(b.id)}">📅 Reschedule +1h</button><button type="button" class="step-pill" style="padding:3px 9px;font-size:11px" data-action="download-booking-ics" data-id="${esc(b.id)}">📥 .ICS Calendar</button>${isStaffOrOwner && !b.seated ? `<button type="button" class="step-pill" style="padding:3px 9px;font-size:11px;color:var(--gr)" data-action="staff-checkin-booking" data-id="${esc(b.id)}">✓ Check In</button>` : ""}${b.status !== "Cancelled" && !b.seated ? `<button type="button" class="step-pill" style="padding:3px 9px;font-size:11px;color:#fda4af" data-action="cancel-booked-slot" data-id="${esc(b.id)}">✕ Cancel</button>` : ""}</div></div>`
             )
             .join("")}
         </div>`;
@@ -10094,16 +10725,6 @@ CREATE TABLE IF NOT EXISTS icafe_sync_queue (
       if (bk.h == null) {
         applyBookingTimeWindow(bk.startTime || "13:00", bk.endTime || "15:00", true);
       }
-      const systemsCount = getSelectedSystemsCount();
-      const availCount = getAvailableRigsInWindow(bk.ty, bk.h, bk.d);
-      if (availCount < systemsCount) {
-        return toast(
-          availCount < 1
-            ? "Sorry, all stations of this type are already booked during that time window."
-            : `Only ${availCount} ${bk.ty.toUpperCase()} station(s) are free during that window (you selected ${systemsCount} systems).`
-        );
-      }
-
       let c = S.cust[p];
       if (!c) {
         if (!/^\d{4,6}$/.test(pinInput)) {
@@ -10113,85 +10734,157 @@ CREATE TABLE IF NOT EXISTS icafe_sync_queue (
         CafeBridge.enqueueMemberUpsert(p);
       }
 
+      const slotsToProcess = Array.isArray(bk.slotQueue) && bk.slotQueue.length > 0
+        ? [...bk.slotQueue]
+        : [{
+            branch: bk.branch || "mazgaon",
+            ty: bk.ty || "pc",
+            h: Number(bk.h),
+            d: Number(bk.d || 2),
+            startTime: bk.startTime || "14:00",
+            endTime: bk.endTime || "16:00",
+            k: bk.ty === "ps" ? bk.k : 1,
+            vr2: bk.ty === "sim" ? Boolean(bk.vr2) : false,
+            grp: Boolean(bk.grp),
+            game: bk.game || "Valorant",
+            multiRigs: Array.isArray(bk.multiRigs) && bk.multiRigs.length > 0 ? [...bk.multiRigs] : [],
+            prefRig: bk.prefRig || "ANY",
+            qty: getSelectedSystemsCount(),
+            estCost: Math.round(est(p))
+          }];
+
       const currentDayStr = day();
-      const sH = Number(bk.h);
-      const eH = sH + Number(bk.d);
-      const isStationBusyInWindow = (stId) => {
-        const altId = stId.startsWith("PS5-") ? stId.replace("PS5-", "PS-") : stId.replace("PS-", "PS5-");
-        return S.book.some((b) => b.day === currentDayStr && (b.stationId === stId || b.stationId === altId) && Math.max(sH, Number(b.h)) < Math.min(eH, Number(b.h) + Number(b.d)));
-      };
+      const plannedReservations = [];
+      let grandTotalEst = 0;
 
-      const explicitRigs = Array.isArray(bk.multiRigs) && bk.multiRigs.length > 0
-        ? [...bk.multiRigs]
-        : (bk.prefRig && bk.prefRig !== "ANY" ? [bk.prefRig] : []);
+      for (const slotItem of slotsToProcess) {
+        const sTy = slotItem.ty || "pc";
+        const sH = Number(slotItem.h);
+        const sD = Number(slotItem.d || 2);
+        const eH = sH + sD;
+        const sysCount = Math.max(1, Array.isArray(slotItem.multiRigs) && slotItem.multiRigs.length > 0 ? slotItem.multiRigs.length : (Number(slotItem.qty) || 1));
 
-      for (const reqRig of explicitRigs) {
-        if (isStationBusyInWindow(reqRig)) {
-          return toast(`Station ${reqRig} is already reserved during ${fmtSlotTime(sH)} – ${fmtSlotTime(eH)}. Pick another station or ANY.`);
+        const isStationBusyForSlot = (stId) => {
+          const altId = stId.startsWith("PS5-") ? stId.replace("PS5-", "PS-") : stId.replace("PS-", "PS5-");
+          const busyInSaved = S.book.some((b) => b.day === currentDayStr && (b.stationId === stId || b.stationId === altId) && Math.max(sH, Number(b.h)) < Math.min(eH, Number(b.h) + Number(b.d)));
+          const busyInPlanned = plannedReservations.some((pr) => (pr.stationId === stId || pr.stationId === altId) && Math.max(sH, Number(pr.h)) < Math.min(eH, Number(pr.h) + Number(pr.d)));
+          return busyInSaved || busyInPlanned;
+        };
+
+        const availCount = getAvailableRigsInWindow(sTy, sH, sD);
+        if (availCount < sysCount) {
+          return toast(
+            availCount < 1
+              ? `Sorry, all ${sTy.toUpperCase()} stations are already booked during ${fmtSlotTime(sH)} – ${fmtSlotTime(eH)}.`
+              : `Only ${availCount} ${sTy.toUpperCase()} station(s) are free during ${fmtSlotTime(sH)} – ${fmtSlotTime(eH)} (requested ${sysCount}).`
+          );
         }
-      }
 
-      const assignedConsoles = [...explicitRigs];
-      if (assignedConsoles.length < systemsCount) {
-        if (bk.ty === "vr") {
-          while (assignedConsoles.length < systemsCount) assignedConsoles.push("VR-1");
-        } else {
-          const candidateRigs = RIGS.filter((r) => r[1] === bk.ty).map((r) => r[0]);
-          const freeIdle = candidateRigs.filter((rId) => !assignedConsoles.includes(rId) && !isStationBusyInWindow(rId) && !getActiveRigSession(rId));
-          const freeAny = candidateRigs.filter((rId) => !assignedConsoles.includes(rId) && !isStationBusyInWindow(rId));
-          const pool = [...freeIdle, ...freeAny.filter((rId) => !freeIdle.includes(rId))];
-          for (const rId of pool) {
-            if (assignedConsoles.length >= systemsCount) break;
-            assignedConsoles.push(rId);
+        const explicitRigs = Array.isArray(slotItem.multiRigs) && slotItem.multiRigs.length > 0
+          ? [...slotItem.multiRigs]
+          : (slotItem.prefRig && slotItem.prefRig !== "ANY" ? [slotItem.prefRig] : []);
+
+        for (const reqRig of explicitRigs) {
+          if (isStationBusyForSlot(reqRig)) {
+            const conflictMsg = `${reqRig} is no longer available. Please choose another resource or time.`;
+            bookNotice = `⚠️ ${conflictMsg}`;
+            render();
+            return toast(conflictMsg);
           }
-          while (assignedConsoles.length < systemsCount) {
-            assignedConsoles.push(bk.ty === "ps" ? "PS5-1" : bk.ty === "sim" ? "SIM-1" : "PC-1");
+        }
+
+        const assignedConsoles = [...explicitRigs];
+        if (assignedConsoles.length < sysCount) {
+          if (sTy === "vr") {
+            while (assignedConsoles.length < sysCount) assignedConsoles.push("VR-1");
+          } else {
+            const candidateRigs = RIGS.filter((r) => r[1] === sTy).map((r) => r[0]);
+            const freeIdle = candidateRigs.filter((rId) => !assignedConsoles.includes(rId) && !isStationBusyForSlot(rId) && !getActiveRigSession(rId));
+            const freeAny = candidateRigs.filter((rId) => !assignedConsoles.includes(rId) && !isStationBusyForSlot(rId));
+            const pool = [...freeIdle, ...freeAny.filter((rId) => !freeIdle.includes(rId))];
+            for (const rId of pool) {
+              if (assignedConsoles.length >= sysCount) break;
+              assignedConsoles.push(rId);
+            }
+            while (assignedConsoles.length < sysCount) {
+              assignedConsoles.push(sTy === "ps" ? "PS5-1" : sTy === "sim" ? "SIM-1" : "PC-1");
+            }
           }
+        }
+
+        const rawSum = assignedConsoles.reduce((acc, stId) => acc + calcRigSlotFare(rigTypeOf(stId), sH, sD), 0);
+        const slotEst = Math.max(0, Math.round(Number(slotItem.estCost) || est(p, sH) || rawSum));
+        grandTotalEst += slotEst;
+        const scaleRatio = rawSum > 0 ? (slotEst / rawSum) : 1;
+
+        for (const stId of assignedConsoles) {
+          const stTy = explicitRigs.length > 0 ? rigTypeOf(stId) : sTy;
+          const indivEst = rawSum > 0
+            ? Math.round(calcRigSlotFare(stTy, sH, sD) * scaleRatio)
+            : Math.round(slotEst / assignedConsoles.length);
+          plannedReservations.push({
+            branch: slotItem.branch || bk.branch || "mazgaon",
+            ty: stTy,
+            h: sH,
+            d: sD,
+            startTime: slotItem.startTime || hValToTimeStr(sH),
+            endTime: slotItem.endTime || hValToTimeStr(eH),
+            k: stTy === "ps" ? (slotItem.k || 1) : 1,
+            vr2: stTy === "sim" ? Boolean(slotItem.vr2) : false,
+            grp: Boolean(slotItem.grp) || assignedConsoles.length >= 5,
+            stationId: stId,
+            estCost: indivEst
+          });
         }
       }
 
       const tObj = tierObjOf(c);
-      const finalEst = Math.round(est(p));
-      let prepaidAmount = 0;
-
       if (pay === "wallet") {
         if (!verifyPlayerPin(c, pinInput)) {
           return toast("Invalid player PIN. (Demo accounts use 0000)");
         }
-        if (c.w < finalEst) {
-          return toast("Wallet has " + rs(c.w) + ", need " + rs(finalEst) + ". Top up at the desk.");
+        if (c.w < grandTotalEst) {
+          return toast("Wallet has " + rs(c.w) + ", need " + rs(grandTotalEst) + ". Top up at the desk.");
         }
-        c.w -= finalEst;
-        prepaidAmount = finalEst;
+        c.w -= grandTotalEst;
       }
 
-      const perStationEst = Math.round(finalEst / assignedConsoles.length);
-      const perStationPrepaid = pay === "wallet" ? perStationEst : 0;
-      const batchId = assignedConsoles.length > 1 ? "BATCH-" + Date.now().toString(36).toUpperCase() : null;
+      const batchId = plannedReservations.length > 1 ? "BATCH-" + Date.now().toString(36).toUpperCase() : null;
       const todayIsoDate = new Date(now()).toISOString().slice(0, 10);
       let lastTxId = "";
+      const bookedSummaryLabels = [];
 
-      for (const assignedConsole of assignedConsoles) {
+      for (const pr of plannedReservations) {
         const newBookId = "VZ" + (S.book.length + 101);
+        const perStationPrepaid = pay === "wallet" ? pr.estCost : 0;
+        const checkinCode = "CHK-" + newBookId + "-" + String((Date.now() % 8999) + 1000);
         S.book.push({
           id: newBookId,
           batchId,
-          batchCount: assignedConsoles.length,
+          batchCount: plannedReservations.length,
           n: c.n,
           p,
-          ty: bk.ty,
-          h: bk.h,
-          d: bk.d,
-          k: bk.ty === "ps" ? bk.k : 1,
-          vr2: bk.ty === "sim" ? bk.vr2 : false,
-          grp: bk.grp || assignedConsoles.length >= 5,
-          day: day(),
-          estCost: perStationEst,
-          pay: pay === "wallet" ? `paid (${rs(perStationEst)})` : `pay at desk (Est. ${rs(perStationEst)} · ${tObj.holdMins}m hold)`,
+          ty: pr.ty,
+          h: pr.h,
+          d: pr.d,
+          k: pr.k,
+          vr2: pr.vr2,
+          grp: pr.grp,
+          day: currentDayStr,
+          estCost: pr.estCost,
+          status: "Confirmed",
+          paymentStatus: pay === "wallet" ? "Paid" : "Pending Payment",
+          checkinCode,
+          playerCount: Number(bk.playerCount || 1),
+          participants: (bk.participantsText || "").trim(),
+          packageId: bk.packageId || null,
+          pay: pay === "wallet" ? `paid (${rs(pr.estCost)})` : `pay at desk (Est. ${rs(pr.estCost)} · ${tObj.holdMins}m hold)`,
           prepaid: perStationPrepaid,
-          stationId: assignedConsole,
+          stationId: pr.stationId,
           seated: false
         });
+        recordBookingAudit("BOOKING_CREATED", newBookId, { stationId: pr.stationId, h: pr.h, d: pr.d, estCost: pr.estCost, paymentStatus: pay === "wallet" ? "Paid" : "Pending Payment" });
+        bookedSummaryLabels.push(`${pr.stationId} (${fmtSlotTime(pr.h)}–${fmtSlotTime(pr.h + pr.d)})`);
 
         const txId = excelGenerateNextTxId(todayIsoDate);
         lastTxId = txId;
@@ -10201,20 +10894,20 @@ CREATE TABLE IF NOT EXISTS icafe_sync_queue (
           date: todayIsoDate,
           customer: c.n,
           phone: p,
-          timeIn: (bk.startTime || "14:00") + ":00",
-          timeOut: (bk.endTime || "16:00") + ":00",
-          totalHr: bk.d,
-          console: assignedConsole.replace("PS5-", "PS-"),
-          category: (bk.grp || assignedConsoles.length >= 5) ? "Group" : (bk.h >= 10 && bk.h + bk.d <= 14 ? "Happy Hr" : "Standard"),
-          controllers: bk.ty === "ps" ? bk.k : 0,
-          gameCharges: perStationEst,
+          timeIn: pr.startTime + ":00",
+          timeOut: pr.endTime + ":00",
+          totalHr: pr.d,
+          console: pr.stationId.replace("PS5-", "PS-"),
+          category: pr.grp ? "Group" : (pr.h >= 10 && pr.h + pr.d <= 14 ? "Happy Hr" : "Standard"),
+          controllers: pr.ty === "ps" ? pr.k : 0,
+          gameCharges: pr.estCost,
           snacks: 0,
-          totalBill: perStationEst,
+          totalBill: pr.estCost,
           cash: 0,
           upi: 0,
-          wallet: pay === "wallet" ? perStationEst : 0,
-          totalReceived: pay === "wallet" ? perStationEst : 0,
-          balanceDue: pay === "wallet" ? 0 : perStationEst,
+          wallet: pay === "wallet" ? pr.estCost : 0,
+          totalReceived: pay === "wallet" ? pr.estCost : 0,
+          balanceDue: pay === "wallet" ? 0 : pr.estCost,
           cashGiven: 0,
           changeToReturn: 0,
           status: pay === "wallet" ? "✅ Paid" : "⏳ Reserved"
@@ -10224,19 +10917,19 @@ CREATE TABLE IF NOT EXISTS icafe_sync_queue (
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            station_id: assignedConsole.replace("PS5-", "PS-"),
-            branch: bk.branch === "charni" ? "CHARNI_ROAD" : "MAZGAON",
+            station_id: pr.stationId.replace("PS5-", "PS-"),
+            branch: pr.branch === "charni" ? "CHARNI_ROAD" : "MAZGAON",
             customer_name: c.n,
             customer_phone: p,
             phone: p,
-            start_ts: `${todayIsoDate} ${bk.startTime || "14:00"}:00`,
-            end_ts: `${todayIsoDate} ${bk.endTime || "16:00"}:00`,
-            duration_hrs: bk.d,
-            category: (bk.grp || assignedConsoles.length >= 5) ? "Group" : (bk.h >= 10 && bk.h + bk.d <= 14 ? "Happy Hr" : "Standard"),
-            controllers: bk.ty === "ps" ? bk.k : 1,
-            vr2_addon: bk.ty === "sim" && bk.vr2 ? 1 : 0,
-            squad_flag: (bk.grp || assignedConsoles.length >= 5) ? 1 : 0,
-            total_inr: perStationEst,
+            start_ts: `${todayIsoDate} ${pr.startTime}:00`,
+            end_ts: `${todayIsoDate} ${pr.endTime}:00`,
+            duration_hrs: pr.d,
+            category: pr.grp ? "Group" : (pr.h >= 10 && pr.h + pr.d <= 14 ? "Happy Hr" : "Standard"),
+            controllers: pr.k,
+            vr2_addon: pr.vr2 ? 1 : 0,
+            squad_flag: pr.grp ? 1 : 0,
+            total_inr: pr.estCost,
             promo_code: bk.promoCode || "",
             payment_mode: pay === "wallet" ? "WALLET" : "PAY_AT_DESK",
             payment_method: pay === "wallet" ? "WALLET" : "DESK"
@@ -10249,13 +10942,13 @@ CREATE TABLE IF NOT EXISTS icafe_sync_queue (
         S.customerDatabase.push({ name: c.n, phone: p, tier: "Non-Member" });
       }
 
-      // Reset multi-selection after booking so next booking starts fresh
+      // Reset multi-selection and slot queue after booking
       bk.multiRigs = [];
       bk.qty = 1;
       bk.prefRig = "ANY";
+      bk.slotQueue = [];
 
-      const stationsLabel = assignedConsoles.join(", ");
-      bookNotice = `✅ Booking Confirmed! ${assignedConsoles.length > 1 ? `${assignedConsoles.length} Stations (${stationsLabel})` : `Station ${stationsLabel}`} reserved under 1 account for ${c.n} (${p}) from ${fmtSlotTime(bk.h)} to ${fmtSlotTime(bk.h + bk.d)} · Total Fare: ${rs(finalEst)} (${pay === "wallet" ? "Paid via Wallet" : "Pay at Desk"}) · Synced to Excel Master Log (Tx #${lastTxId}).`;
+      bookNotice = `✅ Multi-Booking Confirmed! Reserved ${plannedReservations.length} slot booking(s) [${bookedSummaryLabels.join(" · ")}] under 1 account for ${c.n} (${p}) · Total Fare: ${rs(grandTotalEst)} (${pay === "wallet" ? "Paid via Wallet" : "Pay at Desk"}) · Synced to Excel Master Log (Tx #${lastTxId}).`;
       save();
       render();
       toast(bookNotice);
@@ -10307,11 +11000,11 @@ CREATE TABLE IF NOT EXISTS icafe_sync_queue (
 
       return `${renderCombinedHubSwitcher("book_cafe")}<div class="c">
         <div class="tag">NO COOKED FOOD COUNTER · 100% DESK-SAFE GRAB &amp; GO COOLER</div>
-        <h2>VoidZone Chiller: Cold Drinks, Energy Drinks, Chocolates &amp; Protein Bars</h2>
+        <h2>VoidZone F&amp;B: Cold Drinks, Energy Drinks, Chocolates &amp; Protein Bars</h2>
         <p class="m">Zero kitchen grease on keyboards! Grab ice-cold soft drinks, Red Bull / Monster cans, chocolates, and high-protein bars directly from our chiller. Void Gold members get <b>10% off</b>, Elite VIPs get <b>15% off</b>, or apply your <b>20% Wheel Cooler Coupon</b>.</p>
         <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;justify-content:space-between">
           <div>
-            ${renderIosGlassSubTabs(categories.map((cat) => [cat, cat === "ALL" ? "🥤 All Cooler Items" : cat]), cafeOrder.cat, "cafe-cat", "data-cat", "cafe_cats", "255, 138, 20")}
+            ${renderIosGlassSubTabs(categories.map((cat) => [cat, cat === "ALL" ? "🥤 All F&B Items" : cat]), cafeOrder.cat, "cafe-cat", "data-cat", "cafe_cats", "255, 138, 20")}
           </div>
           <div class="sub-panel" style="display:inline-flex;flex-wrap:wrap;align-items:center;gap:8px;padding:8px 12px">
             <span class="tag" style="margin-bottom:0">🔔 AT-SEAT SERVICE BELL</span>
@@ -10333,7 +11026,10 @@ CREATE TABLE IF NOT EXISTS icafe_sync_queue (
                 return `<div class="c" style="margin-bottom:0">
                   <div class="tag">${esc(item.cat)}</div>
                   <h3>${esc(item.name)}</h3>
-                  <div class="row-between" style="margin-top:12px">
+                  <div class="m" style="font-size:11.5px;margin-top:4px">
+                    Member Price: <b style="color:var(--gr)">${rs(Math.round(item.price * 0.85))}</b> <span style="opacity:0.85">(Save ${rs(item.price - Math.round(item.price * 0.85))} w/ VIP)</span>
+                  </div>
+                  <div class="row-between" style="margin-top:10px">
                     <span class="big" style="font-size:22px;color:var(--ac)">${rs(item.price)}</span>
                     <div>
                       ${
@@ -10353,7 +11049,7 @@ CREATE TABLE IF NOT EXISTS icafe_sync_queue (
 
         <div class="c" style="align-self:start">
           <div class="tag">INSTANT SEAT DELIVERY OR PICKUP</div>
-          <h2>Your Cooler &amp; Snack Tray</h2>
+          <h2>Your F&amp;B &amp; Snack Tray</h2>
           <label class="m">Link Player Phone (Optional)<br>
             <input id="cafe-phone" placeholder="10-digit phone" maxlength="10" inputmode="numeric" value="${esc(cafeOrder.phone)}">
           </label>
@@ -10396,7 +11092,7 @@ CREATE TABLE IF NOT EXISTS icafe_sync_queue (
               ? `<div style="border-top:1px solid var(--bd);padding-top:10px">
                   <div class="row-between m"><span>Subtotal:</span><span style="font-family:var(--font-mono)">${rs(summary.subtotal)}</span></div>
                   <div class="row-between m"><span>Discount (${esc(summary.discLabel)}):</span><span style="color:var(--gr);font-family:var(--font-mono)">−${rs(summary.discAmt)}</span></div>
-                  <div class="row-between" style="margin:10px 0"><span class="big" style="font-size:20px">Net Cooler Bill:</span><span class="big" style="font-size:24px;color:var(--ac)">${rs(summary.total)}</span></div>
+                  <div class="row-between" style="margin:10px 0"><span class="big" style="font-size:20px">Net F&amp;B Bill:</span><span class="big" style="font-size:24px;color:var(--ac)">${rs(summary.total)}</span></div>
                   ${
                     cafeOrder.rigId !== "STANDALONE"
                       ? `<button type="button" class="b gold" data-action="cafe-checkout" data-pay="rig">Attach to Station ${esc(cafeOrder.rigId)}</button>`
@@ -10409,6 +11105,27 @@ CREATE TABLE IF NOT EXISTS icafe_sync_queue (
                 </div>`
               : ""
           }
+
+          <div style="margin-top:16px;padding-top:12px;border-top:1px solid var(--bd)">
+            <div class="row-between" style="margin-bottom:6px">
+              <span class="tag" style="margin-bottom:0">LIVE ORDER STATUS &amp; QUICK REORDER</span>
+              <button type="button" class="step-pill" style="font-size:11px" data-action="nav" data-view="membership">💎 Get 15% F&amp;B Off →</button>
+            </div>
+            ${
+              Array.isArray(S.cafeLog) && S.cafeLog.length > 0
+                ? S.cafeLog.slice(-3).reverse().map((ord, idx) => `<div class="sub-panel" style="padding:8px 10px;margin-top:6px">
+                    <div class="row-between">
+                      <b style="font-size:12px">${esc(ord.items)}</b>
+                      <span class="vz-order-status-step">● ${idx === 0 ? (ord.status || "Preparing / Out for Seat Delivery") : "Delivered"}</span>
+                    </div>
+                    <div class="row-between m" style="font-size:11.5px;margin-top:4px">
+                      <span>${esc(ord.n)} · <b>${rs(ord.total)}</b> (${esc(ord.pay)})</span>
+                      <button type="button" class="step-pill" style="padding:2px 8px;font-size:11px" data-action="cafe-quick-reorder" data-items="${esc(ord.items)}">🔁 Reorder</button>
+                    </div>
+                  </div>`).join("")
+                : `<div class="m" style="font-size:12px">No orders placed in this session yet. Select any drink or snack and choose <b>Deliver to Active Station</b> or <b>Counter Pickup</b>.</div>`
+            }
+          </div>
         </div>
       </div>`;
     }
@@ -10540,6 +11257,16 @@ CREATE TABLE IF NOT EXISTS icafe_sync_queue (
           <button type="button" class="b" data-action="lookup-rewards">Look up</button>
         </div>
         <p class="m">Demo Players: <b>9820011223</b> (Rahul · PIN <b>0000</b> · 1 Drop Crate, 2 Spins, 2/3 Shards) or <b>9819397166</b> (Manish · PIN <b>0000</b>).</p>
+        <div class="sub-panel" style="margin-top:10px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap">
+          <div class="m" style="font-size:12.5px">
+            ⚡ <b>How You Earn:</b> <b>+1 Cyber Spin</b> per hour played · <b>+15m Free HH Pass</b> on 3h+ bookings · <b>+1 Drop Crate</b> every 5 hours or 7-day streak · <b>+${tObj.dropBonusWt}% High-Tier Drop Boost</b> from your <b>${esc(tObj.name)}</b> membership.
+          </div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap">
+            <button type="button" class="step-pill" data-action="redeem-loyalty-reward" data-reward="PASS30">🎁 Redeem +30m HH Pass (1 Spin)</button>
+            <button type="button" class="step-pill" data-action="redeem-loyalty-reward" data-reward="COOLER20">🥤 Redeem 20% Cooler Coupon (1 Spin)</button>
+            <button type="button" class="step-pill" data-action="nav" data-view="membership">💎 Boost Multiplier →</button>
+          </div>
+        </div>
 
         ${
           c
@@ -15633,26 +16360,36 @@ function panel() {
           go("book");
           break;
         }
-        case "book-game":
-          bk.game = btn.getAttribute("data-game") || "Valorant";
-          if (btn.getAttribute("data-type")) bk.ty = btn.getAttribute("data-type");
+        case "book-game": {
+          const gTitle = btn.getAttribute("data-game") || "Valorant";
+          if (!Array.isArray(bk.multiGames)) bk.multiGames = bk.game ? [bk.game] : ["Valorant"];
+          if (bk.multiGames.includes(gTitle)) {
+            if (bk.multiGames.length > 1) {
+              bk.multiGames = bk.multiGames.filter((g) => g !== gTitle);
+            }
+          } else {
+            bk.multiGames.push(gTitle);
+          }
+          bk.game = bk.multiGames[0] || gTitle;
+          if (btn.getAttribute("data-type") && (!Array.isArray(bk.multiRigs) || bk.multiRigs.length === 0)) {
+            bk.ty = btn.getAttribute("data-type");
+          }
           render();
-          toast(`Pre-warmed game focus set to ${bk.game}.`);
+          toast(`Selected Pre-Warm Game(s): ${bk.multiGames.join(" + ")}`);
           break;
+        }
         case "pick-pref-rig": {
           const rId = btn.getAttribute("data-rig") || "ANY";
-          const rTy = btn.getAttribute("data-type") || bk.ty;
-          if (rTy !== bk.ty) {
-            bk.ty = rTy;
-            bk.multiRigs = rId !== "ANY" ? [rId] : [];
-            bk.prefRig = rId;
-            bk.qty = 1;
-          } else if (rId === "ANY") {
+          const rTy = btn.getAttribute("data-type") || rigTypeOf(rId);
+          if (rId === "ANY") {
             bk.multiRigs = [];
             bk.prefRig = "ANY";
             bk.qty = 1;
           } else {
             if (!Array.isArray(bk.multiRigs)) bk.multiRigs = [];
+            if (bk.multiRigs.length === 0 && bk.prefRig && bk.prefRig !== "ANY") {
+              bk.multiRigs = [bk.prefRig];
+            }
             if (bk.multiRigs.includes(rId)) {
               bk.multiRigs = bk.multiRigs.filter((x) => x !== rId);
             } else {
@@ -15660,12 +16397,18 @@ function panel() {
             }
             bk.prefRig = bk.multiRigs[0] || "ANY";
             bk.qty = Math.max(1, bk.multiRigs.length);
+            if (bk.multiRigs.length > 0) {
+              bk.ty = rigTypeOf(bk.multiRigs[bk.multiRigs.length - 1]);
+            } else {
+              bk.ty = rTy;
+            }
           }
+          const updatedEst = estBreakdown(bk.h, bk.phone);
           render();
           toast(
-            bk.multiRigs && bk.multiRigs.length > 1
-              ? `Selected ${bk.multiRigs.length} stations (${bk.multiRigs.join(", ")}) under 1 account.`
-              : `Selected station ${bk.prefRig} (${bk.ty.toUpperCase()}) for reservation.`
+            bk.multiRigs && bk.multiRigs.length > 0
+              ? `Selected ${bk.multiRigs.length} station(s) [${bk.multiRigs.join(" + ")}] · Total Fare: ${rs(updatedEst.finalCost)}`
+              : `Reset station selection to Auto-Assign (ANY) · Fare: ${rs(updatedEst.finalCost)}`
           );
           break;
         }
@@ -15693,6 +16436,354 @@ function panel() {
           bk.qty = 1;
           render();
           toast("Reset station selection to 1 System (Auto-Assign ANY).");
+          break;
+        }
+        case "add-slot-to-queue": {
+          if (!Array.isArray(bk.slotQueue)) bk.slotQueue = [];
+          const snap = buildCurrentSlotSnapshot();
+          bk.slotQueue.push(snap);
+          // Advance start time to the end of the queued slot so user can immediately configure their next slot
+          const nextStartH = Math.min(24, Number(bk.h || 14) + Number(bk.d || 2));
+          const nextEndH = Math.min(26, nextStartH + Number(bk.d || 2));
+          applyBookingTimeWindow(hValToTimeStr(nextStartH), hValToTimeStr(nextEndH), true);
+          bk.multiRigs = [];
+          bk.prefRig = "ANY";
+          bk.qty = 1;
+          render();
+          toast(`➕ Added Slot #${bk.slotQueue.length} (${snap.ty.toUpperCase()} · ${fmtSlotTime(snap.h)}–${fmtSlotTime(snap.h + snap.d)}) to your Multi-Booking Queue!`);
+          break;
+        }
+        case "add-next-slot": {
+          if (!Array.isArray(bk.slotQueue)) bk.slotQueue = [];
+          if (bk.slotQueue.length === 0) {
+            bk.slotQueue.push(buildCurrentSlotSnapshot());
+          }
+          const lastItem = bk.slotQueue[bk.slotQueue.length - 1];
+          const nextH = Math.min(24, Number(lastItem.h) + Number(lastItem.d));
+          const dur = Number(lastItem.d || 2);
+          applyBookingTimeWindow(hValToTimeStr(nextH), hValToTimeStr(Math.min(26, nextH + dur)), true);
+          const nextSnap = buildCurrentSlotSnapshot();
+          bk.slotQueue.push(nextSnap);
+          render();
+          toast(`⚡ Queued ${bk.slotQueue.length} consecutive slot bookings under your account!`);
+          break;
+        }
+        case "remove-queued-slot": {
+          const qid = btn.getAttribute("data-qid");
+          if (Array.isArray(bk.slotQueue)) {
+            bk.slotQueue = bk.slotQueue.filter((item) => item.qid !== qid);
+          }
+          render();
+          toast("Removed slot from Multi-Booking Queue.");
+          break;
+        }
+        case "clear-slot-queue": {
+          bk.slotQueue = [];
+          render();
+          toast("Cleared Multi-Booking Queue.");
+          break;
+        }
+        case "book-another-slot": {
+          const activePhone = (S.authSession?.phone || bk.phone || "").trim();
+          const myBks = S.book.filter((b) => b.day === day() && (!activePhone || b.p === activePhone));
+          if (myBks.length > 0) {
+            const lastBk = myBks[myBks.length - 1];
+            const nextH = Math.min(24, Number(lastBk.h) + Number(lastBk.d));
+            applyBookingTimeWindow(hValToTimeStr(nextH), hValToTimeStr(Math.min(26, nextH + Number(lastBk.d || 2))), true);
+          }
+          render();
+          toast("Ready to add another slot booking under your account!");
+          break;
+        }
+        case "book-followup-slot": {
+          const bid = btn.getAttribute("data-id");
+          const targetBk = S.book.find((b) => b.id === bid);
+          if (targetBk) {
+            bk.ty = targetBk.ty || "pc";
+            bk.name = targetBk.n || bk.name;
+            bk.phone = targetBk.p || bk.phone;
+            const nextH = Math.min(24, Number(targetBk.h) + Number(targetBk.d));
+            applyBookingTimeWindow(hValToTimeStr(nextH), hValToTimeStr(Math.min(26, nextH + Number(targetBk.d || 2))), true);
+            render();
+            toast(`Set slot picker to follow ${targetBk.id} (${fmtSlotTime(bk.h)} – ${fmtSlotTime(bk.h + bk.d)}) under ${bk.name}.`);
+          }
+          break;
+        }
+        case "duplicate-booked-slot": {
+          const bid = btn.getAttribute("data-id");
+          const targetBk = S.book.find((b) => b.id === bid);
+          if (targetBk) {
+            bk.ty = targetBk.ty || "pc";
+            bk.name = targetBk.n || bk.name;
+            bk.phone = targetBk.p || bk.phone;
+            bk.multiRigs = [];
+            bk.prefRig = "ANY";
+            bk.qty = 1;
+            applyBookingTimeWindow(hValToTimeStr(Number(targetBk.h)), hValToTimeStr(Number(targetBk.h) + Number(targetBk.d)), true);
+            confirmBook("desk");
+          }
+          break;
+        }
+        case "apply-booking-package": {
+          ensureBookingPlatformState();
+          const pkgId = btn.getAttribute("data-pkg") || "";
+          const pkg = BOOKING_PACKAGES.find((x) => x.id === pkgId);
+          if (pkg) {
+            if (bk.packageId === pkg.id) {
+              bk.packageId = "";
+              bk.multiRigs = [];
+              bk.prefRig = "ANY";
+              bk.qty = 1;
+              render();
+              toast(`Removed package ${pkg.name}.`);
+            } else {
+              bk.packageId = pkg.id;
+              bk.multiRigs = [...pkg.rigs];
+              bk.prefRig = pkg.rigs[0] || "PC-1";
+              bk.qty = pkg.rigs.length;
+              bk.d = pkg.dur;
+              bk.playerCount = Math.max(bk.playerCount || 1, pkg.minPlayers);
+              if (bk.h != null) {
+                bk.startTime = hValToTimeStr(bk.h);
+                bk.endTime = hValToTimeStr(bk.h + bk.d);
+              }
+              const updEst = estBreakdown(bk.h, bk.phone);
+              render();
+              toast(`📦 Applied ${pkg.name} (${pkg.rigs.join(" + ")} · ${pkg.dur}h · -${pkg.discPct}%) · Total: ${rs(updEst.finalCost)}`);
+            }
+          }
+          break;
+        }
+        case "toggle-booking-addon": {
+          ensureBookingPlatformState();
+          const addonId = btn.getAttribute("data-addon") || "";
+          const curQty = Number(bk.addons?.[addonId] || 0);
+          bk.addons[addonId] = curQty > 0 ? 0 : 1;
+          const updEst = estBreakdown(bk.h, bk.phone);
+          render();
+          toast(`${bk.addons[addonId] ? "➕ Added" : "✕ Removed"} add-on · Updated Fare: ${rs(updEst.finalCost)}`);
+          break;
+        }
+        case "recommend-group-setup": {
+          ensureBookingPlatformState();
+          const pCnt = Math.max(1, Number(bk.playerCount || 1));
+          const sH = Number(bk.h || 14);
+          const sD = Number(bk.d || 2);
+          const freePcs = RIGS.filter((r) => r[1] === "pc" && !isResourceBusyAtWindow(r[0], sH, sD).busy).map((r) => r[0]);
+          const freePs5 = RIGS.filter((r) => r[1] === "ps" && !isResourceBusyAtWindow(r[0], sH, sD).busy).map((r) => r[0]);
+          if (freePcs.length >= pCnt) {
+            bk.multiRigs = freePcs.slice(0, pCnt);
+            bk.prefRig = bk.multiRigs[0];
+            bk.qty = bk.multiRigs.length;
+            render();
+            toast(`✨ Recommended ${pCnt} available PC(s): ${bk.multiRigs.join(" + ")}`);
+          } else if (freePcs.length + freePs5.length * 2 >= pCnt && freePs5.length > 0) {
+            const pickedPcs = freePcs.slice(0, Math.max(0, pCnt - 2));
+            bk.multiRigs = [...pickedPcs, freePs5[0]];
+            bk.prefRig = bk.multiRigs[0];
+            bk.qty = bk.multiRigs.length;
+            render();
+            toast(`✨ Hybrid Group Recommendation for ${pCnt} players: ${bk.multiRigs.join(" + ")}`);
+          } else {
+            toast(`Only ${freePcs.length} PC(s) available at ${fmtSlotTime(sH)}. Check Alternative Slot Finder below!`);
+          }
+          break;
+        }
+        case "join-slot-waitlist": {
+          ensureBookingPlatformState();
+          const wPhone = ($("#bp")?.value || bk.phone || S.authSession?.phone || "9820011223").trim();
+          const wName = ($("#bn")?.value || bk.name || "Player").trim();
+          const sH = Number(bk.h || 14);
+          const eH = sH + Number(bk.d || 2);
+          const dup = S.bookingWaitlist.find((w) => w.phone === wPhone && w.h === sH && w.ty === bk.ty && w.status === "Waiting");
+          if (dup) {
+            return toast("You are already on the waitlist for this slot.");
+          }
+          const wlEntry = {
+            id: "WL-" + (S.bookingWaitlist.length + 101),
+            phone: wPhone,
+            name: wName,
+            ty: bk.ty,
+            h: sH,
+            d: Number(bk.d || 2),
+            playerCount: Number(bk.playerCount || 1),
+            status: "Waiting",
+            expiresAt: new Date(now() + 30 * 60000).toISOString()
+          };
+          S.bookingWaitlist.push(wlEntry);
+          recordBookingAudit("WAITLIST_JOINED", wlEntry.id, wlEntry);
+          save();
+          render();
+          toast(`⏳ Added ${wName} to ${bk.ty.toUpperCase()} Waitlist for ${fmtSlotTime(sH)} – ${fmtSlotTime(eH)} (15m claim window when open).`);
+          break;
+        }
+        case "jump-alt-slot": {
+          const nextH = Number(btn.getAttribute("data-h") || 14);
+          const dur = Number(bk.d || 2);
+          applyBookingTimeWindow(hValToTimeStr(nextH), hValToTimeStr(Math.min(26, nextH + dur)), true);
+          render();
+          toast(`🕒 Switched to available slot ${fmtSlotTime(bk.h)} – ${fmtSlotTime(bk.h + bk.d)}.`);
+          break;
+        }
+        case "reschedule-booked-slot": {
+          const bid = btn.getAttribute("data-id");
+          const targetBk = S.book.find((b) => b.id === bid);
+          if (!targetBk) break;
+          const newH = Number(targetBk.h) + 1;
+          if (newH + Number(targetBk.d) > 26) {
+            return toast("Cannot reschedule past 2:00 AM closing time.");
+          }
+          const stId = targetBk.stationId || "PC-1";
+          const conflict = S.book.find((b) =>
+            b.id !== targetBk.id &&
+            b.day === targetBk.day &&
+            b.status !== "Cancelled" &&
+            b.stationId === stId &&
+            Math.max(newH, Number(b.h)) < Math.min(newH + Number(targetBk.d), Number(b.h) + Number(b.d))
+          );
+          if (conflict) {
+            return toast(`Cannot reschedule: ${stId} is already booked at ${fmtSlotTime(newH)}.`);
+          }
+          const oldH = targetBk.h;
+          const oldCost = Number(targetBk.estCost || 0);
+          targetBk.h = newH;
+          const newCost = calcRigSlotFare(rigTypeOf(stId), newH, targetBk.d);
+          const diff = newCost - oldCost;
+          targetBk.estCost = newCost;
+          recordBookingAudit("BOOKING_RESCHEDULED", targetBk.id, { stationId: stId, fromH: oldH, toH: newH, priceDiff: diff });
+          save();
+          render();
+          toast(`📅 Rescheduled ${targetBk.id} (${stId}) to ${fmtSlotTime(newH)} – ${fmtSlotTime(newH + Number(targetBk.d))}${diff !== 0 ? ` (Fare diff: ${diff > 0 ? "+" : ""}${rs(diff)})` : ""}.`);
+          break;
+        }
+        case "cancel-booked-slot": {
+          const bid = btn.getAttribute("data-id");
+          const idx = S.book.findIndex((b) => b.id === bid);
+          if (idx === -1) break;
+          const targetBk = S.book[idx];
+          if (targetBk.seated) {
+            return toast("Active seated sessions must be checked out by Staff.");
+          }
+          const refundAmt = Number(targetBk.prepaid || 0);
+          if (refundAmt > 0 && targetBk.p && S.cust[targetBk.p]) {
+            S.cust[targetBk.p].w = (S.cust[targetBk.p].w || 0) + refundAmt;
+          }
+          recordBookingAudit("BOOKING_CANCELLED", targetBk.id, { stationId: targetBk.stationId, refundedInr: refundAmt });
+          S.book.splice(idx, 1);
+          save();
+          render();
+          toast(`✕ Cancelled booking ${targetBk.id} (${targetBk.stationId})${refundAmt > 0 ? ` · Refunded ${rs(refundAmt)} to Wallet` : ""}.`);
+          break;
+        }
+        case "staff-checkin-booking": {
+          if (!(ok && (staffRole === "staff" || staffRole === "owner"))) {
+            return toast("Staff or Owner authorization required for check-in.");
+          }
+          const bid = btn.getAttribute("data-id");
+          const targetBk = S.book.find((b) => b.id === bid);
+          if (targetBk) {
+            targetBk.seated = true;
+            targetBk.status = "Checked In";
+            targetBk.checkedInAt = new Date(now()).toISOString();
+            recordBookingAudit("BOOKING_CHECKED_IN", targetBk.id, { stationId: targetBk.stationId });
+            save();
+            render();
+            toast(`✓ Checked in ${targetBk.n} for ${targetBk.stationId} (${targetBk.id}).`);
+          }
+          break;
+        }
+        case "download-booking-ics": {
+          const bid = btn.getAttribute("data-id");
+          const targetBk = S.book.find((b) => b.id === bid);
+          if (!targetBk) break;
+          const icsContent = [
+            "BEGIN:VCALENDAR",
+            "VERSION:2.0",
+            "PRODID:-//VoidZone Gaming Cafe//Reservation//EN",
+            "BEGIN:VEVENT",
+            `SUMMARY:VoidZone Gaming Session - ${targetBk.stationId || targetBk.ty.toUpperCase()} (${targetBk.id})`,
+            `DESCRIPTION:Customer: ${targetBk.n} | Station: ${targetBk.stationId} | Fare: INR ${targetBk.estCost}`,
+            "LOCATION:VoidZone Gaming Cafe, Mazgaon, Mumbai",
+            "END:VEVENT",
+            "END:VCALENDAR"
+          ].join("\r\n");
+          try {
+            const blob = new Blob([icsContent], { type: "text/calendar;charset=utf-8" });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = `voidzone-${targetBk.id.toLowerCase()}.ics`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+          } catch (_) {}
+          toast(`📥 Generated calendar invite (.ics) for Booking ${targetBk.id}!`);
+          break;
+        }
+        case "membership-upgrade-tier": {
+          const tIdx = Math.min(3, Math.max(1, Number(btn.getAttribute("data-tier-idx")) || 1));
+          const targetTier = TIERS[tIdx];
+          const activePhone = S.authSession?.phone || cur || "9820011223";
+          const c = S.cust[activePhone];
+          if (!c) {
+            return toast("Sign in with your 10-digit player phone to activate or upgrade your membership.");
+          }
+          // Activate tier by ensuring lifetime hours threshold or deducting pass fee if wallet has funds
+          if ((c.w || 0) >= targetTier.passPrice) {
+            c.w -= targetTier.passPrice;
+          }
+          c.h = Math.max(Number(c.h || 0), targetTier.minH);
+          c.pass = (c.pass || 0) + (targetTier.passBonusMins || 0);
+          recordBookingAudit("MEMBERSHIP_UPGRADED", `MEM-${activePhone}`, { tier: targetTier.name, feeInr: targetTier.passPrice });
+          save();
+          render();
+          toast(`💎 Upgraded ${c.n} to ${targetTier.name}! (${Math.round(targetTier.playDisc * 100)}% Play Disc · +${targetTier.passBonusMins || 0}m HH Pass credited)`);
+          break;
+        }
+        case "cafe-quick-reorder": {
+          const firstItem = CAFE_MENU[0];
+          if (firstItem) {
+            cafeOrder.cart[firstItem.id] = (cafeOrder.cart[firstItem.id] || 0) + 1;
+            render();
+            toast(`🔁 Added ${firstItem.name} to your Cooler Tray for quick reorder!`);
+          }
+          break;
+        }
+        case "redeem-loyalty-reward": {
+          const rwType = btn.getAttribute("data-reward") || "PASS30";
+          const activePhone = S.authSession?.phone || cur || "9820011223";
+          const c = S.cust[activePhone];
+          if (!c) return toast("Look up your player account first.");
+          if ((c.sp || 0) < 1) return toast("You need at least 1 Cyber Spin token to redeem this instant reward.");
+          c.sp -= 1;
+          if (rwType === "PASS30") {
+            c.pass = (c.pass || 0) + 30;
+            toast("🎁 Redeemed +30m Happy Hour Free Pass!");
+          } else {
+            c.cp = (c.cp || 0) + 1;
+            toast("🥤 Redeemed 20% Off Cooler Coupon!");
+          }
+          save();
+          render();
+          break;
+        }
+        case "all-hub-go": {
+          const targetV = btn.getAttribute("data-view") || "home";
+          const subT = btn.getAttribute("data-subtab") || "";
+          if (targetV === "community" && subT) commSubTab = subT;
+          go(targetV);
+          break;
+        }
+        case "all-hub-search-btn": {
+          const inp = document.getElementById("all-hub-search");
+          allHubSearchQuery = inp ? inp.value.trim() : "";
+          render();
+          break;
+        }
+        case "all-hub-clear-search": {
+          allHubSearchQuery = "";
+          render();
           break;
         }
         case "whatsapp-book": {
@@ -16218,6 +17309,23 @@ function panel() {
           bk.startTime = hValToTimeStr(bk.h);
           bk.endTime = hValToTimeStr(bk.h + bk.d);
         }
+        render();
+      } else if (action === "set-item-duration") {
+        ensureBookingPlatformState();
+        const rId = el.getAttribute("data-rig") || "";
+        const val = Math.max(0.5, Number(el.value) || 2);
+        if (rId) bk.itemDurations[rId] = val;
+        render();
+      } else if (action === "book-player-count") {
+        ensureBookingPlatformState();
+        bk.playerCount = Math.max(1, Number(el.value) || 1);
+        render();
+      } else if (action === "mem-calc-hours") {
+        memCalcHours = Math.max(4, Number(el.value) || 16);
+        render();
+      } else if (action === "book-recurrence") {
+        ensureBookingPlatformState();
+        bk.recurrence = el.value || "ONCE";
         render();
       } else if (action === "book-qty") {
         const newQty = Math.min(17, Math.max(1, Number(el.value) || 1));
