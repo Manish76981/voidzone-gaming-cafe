@@ -1,0 +1,20 @@
+{
+  "name": "voidzone-gaming-cafe",
+  "version": "5.2.0",
+  "private": true,
+  "description": "VoidZone Gaming Cafe \u2014 Esports Lounge POS, 13-Sheet Excel Engine, Cash Drawer Counter & Cloudflare Pages/D1 Application",
+  "type": "module",
+  "scripts": {
+    "build": "node ./scripts/build.mjs",
+    "test": "node ./test/run-tests.mjs",
+    "d1:init:local": "npx wrangler d1 execute voidzone-db --local --file=./schema.sql",
+    "d1:init:remote": "npx wrangler d1 execute voidzone-db --remote --file=./schema.sql",
+    "pages:dev": "npm run build && npx wrangler pages dev ./dist --d1 DB=voidzone-db",
+    "pages:deploy": "npm run build && npx wrangler pages deploy ./dist --project-name voidzone-gaming-cafe",
+    "worker:deploy": "npm run build && npx wrangler deploy",
+    "deploy": "npm run build && npx wrangler pages deploy ./dist --project-name voidzone-gaming-cafe"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
